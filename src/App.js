@@ -4,6 +4,7 @@ import './App.css';
 import Test from './test';
 import Resultados from './resultados';
 import Header from './header';
+import Inicio from './Inicio'
 import Aboutus from './nosotros';
 import Responsabilizate from './responsable';
 
@@ -13,10 +14,11 @@ function App() {
       <BrowserRouter>
         <Header />
         <Route exact path="/">
-          <Test />
+          <Inicio />
         </Route>
+        <Route path="/test">     <Test /></Route>
         <Route path="/aboutus">
-        <Aboutus />
+          <Aboutus />
         </Route>
         <Route path="/resultados">
           <Resultados />

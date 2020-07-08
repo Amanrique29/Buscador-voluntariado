@@ -1,22 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
+import Slider from './Slider';
 
 function Test() {
-    let testJSX = <main>
-        <div className="test">
-            <h1>¡Prueba nuestro test!</h1>
-            <Link to="/buscador">Ir a buscador convencional</Link>
-        </div>
-        <img className="test-img" src="test.jpg" alt=""></img>
-        <button onClick={siguiente}>Continuar</button>
-    </main>;
 
+    
+    
     let mapaJSX = <main>
+        <h3>Elige tu área geográfica</h3>
         <img className="test-img" src="españa.jpg" alt=""></img>
         <button onClick={siguiente}>Continuar</button>
     </main>;
     let slidersJSX = <main>
-        <img className="test-img" src="sliders.jpg" alt=""></img>
+       
+        <h3>Define tus preferencias</h3>
+        <Slider/>
+       
         <button onClick={siguiente}>Continuar</button>
     </main>;
 
@@ -24,15 +23,13 @@ function Test() {
         <img className="test-img" src="temas.png" alt=""></img>
         <Link to="/resultados">Resultados</Link>
     </main>;
-    let [test, setTest] = useState(testJSX);
-    let [num, setNum] = useState(0);
+
+    let [test, setTest] = useState(mapaJSX);
+    let [num, setNum] = useState(1);
     function siguiente() {
         console.log(num);
         switch (num) {
-            case 0:
-                setTest(mapaJSX);
-                setNum(num++);
-                break;
+           
             case 1:
                 setTest(slidersJSX);
                 setNum(num++);
