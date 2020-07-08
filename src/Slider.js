@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useState} from 'react';
 
 function Slider () {
 
@@ -10,6 +10,22 @@ function Slider () {
     if (afinidades === null) {
         afinidades = [{valor:1}];
     }
+
+    useEffect (function () {
+     
+        let unaAfinidad = {
+          
+            'valor': 1
+        }
+    
+        afinidades.push(unaAfinidad);
+    
+
+        let afinidadenJson = JSON.stringify(afinidades);
+
+        localStorage.setItem('afinidades', afinidadenJson);
+
+    })
     
 
     function handleChange (event) {
@@ -21,11 +37,13 @@ function Slider () {
           
         'valor': valor
     }
+
     afinidades.push(unaAfinidad);
 
     let afinidadenJson = JSON.stringify(afinidades);
 
     localStorage.setItem('afinidades', afinidadenJson);
+
     }
 
   

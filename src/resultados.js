@@ -3,12 +3,13 @@ import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
 
 function Resultados(){
     
-    let [resultadosSlidersJSX, setResultadosSildersJSX] = useState('')
+    let [resultadosSlidersJSX, setResultadosSildersJSX] = useState('');
     let afinidades = JSON.parse(localStorage.getItem('afinidades'));
     if (afinidades === null) {
         afinidades = [{valor:1}];
         console.log(afinidades)
     }
+    
 
     // if (afinidades === undefined) {
     //     setResultadosSildersJSX (

@@ -14,7 +14,7 @@ function Test() {
     let slidersJSX = <main>
        
         <h3>Define tus preferencias</h3>
-        <Slider/>
+        <Slider />
        
         <button onClick={siguiente}>Continuar</button>
     </main>;
@@ -26,7 +26,7 @@ function Test() {
 
     let [test, setTest] = useState(mapaJSX);
     let [num, setNum] = useState(1);
-    
+
     function siguiente() {
         console.log(num);
         switch (num) {
