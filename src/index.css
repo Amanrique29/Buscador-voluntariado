@@ -9,7 +9,7 @@ body {
 }
 
 @media (max-width: 500px) {
-  body{
+  body {
     padding-top: 80px;
   }
 
