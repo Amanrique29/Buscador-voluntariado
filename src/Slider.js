@@ -47,9 +47,6 @@ function Slider () {
     }
 
   
-  
-    
-
     return (
       <div className="sliderContainer">
       <input

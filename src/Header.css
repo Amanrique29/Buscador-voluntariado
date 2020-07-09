@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  @media (max-width: 500px) {
+  .fijar{
+    position: fixed;
+    width: 100%; 
+	  left: 0;
+    top: 0;
+    background-color: white;
+  }
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navegacion{
+    display: flex;
+    font-weight:200;
+    font-size:13px;
+  }
+  .pestanya:hover{
+    color:#2d567a;
+  }
+
+  .logo{
+    width: 12%;
+    margin:2%;
+  }
+  a{
+    padding-right: 14px;
+    text-decoration: none;
+    color: black;
+  }
+}

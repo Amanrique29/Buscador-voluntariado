@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
+import './Header.css';
 
 function Header(){
     return (
         <>
         <header className="fijar">
-          <div className="language">
-            <Link to="/castellano">ES</Link>
-            <Link to="/ingles">EN</Link>
-          </div>
           <div className="header">
             <img className="logo" src="logorandom.jpg" alt=""></img>
 
             <div className="navegacion">
-              <Link to="/">Inicio</Link>
-              <Link to="/aboutus">Sobre nosotros</Link>
-              <Link to="/responsabilizate">Responsabilízate</Link>
+              <Link to="/" className="pestanya">Inicio</Link>
+              <Link to="/aboutus" className="pestanya" >Sobre nosotros</Link>
+              <Link to="/responsabilizate"
+              className="pestanya"
+              >Responsabilízate</Link>
             </div>
           </div>
 

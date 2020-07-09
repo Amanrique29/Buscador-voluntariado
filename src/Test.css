@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  @media (max-width: 500px) {
+    body {
+        padding-top: 80px;
+      }
+
+    h3{
+        font-weight:100;
+      } 
+
+      .test-img{
+          width:80%;
+          margin:15px;
+      }
+
+    /* Formato Sliders  */
+
+.sliderContainer {
+    width: 40%;
+    margin-top: 40px;
+  }
+  
+  .sliderPrueba {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    transition: 0.4s all ease-out;
+    border-radius: 12px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 6px 6px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .sliderPrueba:hover {
+    opacity: 1;
+  }
+  
+  .sliderPrueba::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: rgb(14, 13, 13);
+    
+    border-radius: 50%;
+    transition: 0.4s all ease-out;
+    cursor: pointer
+  
+  }
+  
+
+    }

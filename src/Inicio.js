@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Link, useParams, useHistory } from 'react-router-dom';
+import './Inicio.css';
 
 function Inicio() {
 
@@ -12,11 +13,10 @@ function Inicio() {
     let testJSX = <main>
         <div className="test">
             <h1>¡Prueba nuestro test!</h1>
-            <Link to="/buscador">Ir a buscador convencional</Link>
+            <button className="botonContinuar" onClick={irATest}>Continuar</button>
         </div>
-        <img className="test-img" src="test.jpg" alt=""></img>
-
-        <button onClick={irATest}>Continuar</button>
+        {/* <img className="test-img" src="test.jpg" alt=""></img> */}
+        <Link to="/buscador" className="buscadorConvencional">... Ir a buscador convencional</Link> 
     </main>;
 
     return (
