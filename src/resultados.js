@@ -6,10 +6,8 @@ function Resultados() {
 
     let [resultadosSlidersJSX, setResultadosSildersJSX] = useState('');
     let afinidades = JSON.parse(localStorage.getItem('afinidades'));
-    if (afinidades === null) {
-        afinidades = [{ valor: 1 }];
-        console.log(afinidades)
-    }
+
+    let listadoProvincias = JSON.parse(localStorage.getItem('provincias'));
 
 
     // if (afinidades === undefined) {
@@ -21,10 +19,27 @@ function Resultados() {
     //     setResultadosSildersJSX (<p>Tienes una sociabilidad de {afinidades[afinidades.length-1].valor}</p>)
     // }
 
+    const cualidadesJSX = afinidades.map(function (afinidad) {
+        return (
+            <p>Tienes una {afinidad.nombre} de {afinidad.valor}</p>
+        )
+    })
+
+    const provinciasJSX = listadoProvincias.map(function (provincia) {
+        return (
+            <p>Ofertas en la provincia de {provincia}</p>
+        )
+    })
+
     return (
         <main>
             <h3>Resultados del test</h3>
-            <p>Tienes una sociabilidad de {afinidades[afinidades.length - 1].valor}</p>
+            <>
+                {cualidadesJSX}
+            </>
+            <>
+                {provinciasJSX}
+            </>
         </main>
     )
 };

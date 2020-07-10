@@ -1,70 +1,63 @@
 import React, { useEffect } from 'react';
-import { useState} from 'react';
+import { useState } from 'react';
+import SliderDibujo from './SliderDibujo';
 
-function Slider () {
+let arrayAfinidades = [
+  {
+    nombre: "trabajo físico",
+  },
+  {
+    nombre: "sociabilidad",
+  },
+  {
+    nombre: "pensamiento creativo",
+  },
+  {
+    nombre: "capacidad de trabajar bajo presión",
+  },
+];
 
-    const [valor, setValor] = useState(1);
 
+function Slider() {
+  function onSliderChange(nombreSlider, valor) {
+    console.log('ha cambiado el valor de ' + nombreSlider + ' y su valor es ' + valor);
+    // 1) Coger el array en json del local storage
     let afinidades = JSON.parse(localStorage.getItem('afinidades'));
-    
-    if (afinidades === null) {
-        afinidades = [{valor:1}];
+    //2.Hacemos un for para buscar la afinidad que hemos modificado y sustituir el valor del modificado de los 4 de arrayAfinidades
+    for (let i = 0; i < afinidades.length; i++) {
+      if (afinidades[i].nombre === nombreSlider) {
+        afinidades[i].valor = valor;
+      }
     }
-
-    useEffect (function () {
-     
-        let unaAfinidad = {
-          
-            'valor': 1
-        }
-    
-        afinidades.push(unaAfinidad);
-    
-
-        let afinidadenJson = JSON.stringify(afinidades);
-
-        localStorage.setItem('afinidades', afinidadenJson);
-
-    })
-    
-
-    function handleChange (event) {
-      console.log(event.target.value);
-      setValor(event.target.value);
-      console.log('Lo que queremos ver es ' + valor)
-      
-      let unaAfinidad = {
-          
-        'valor': valor
-    }
-
-    afinidades.push(unaAfinidad);
+    // modifico el nombre a su valor que nos llega
 
     let afinidadenJson = JSON.stringify(afinidades);
-
     localStorage.setItem('afinidades', afinidadenJson);
-
-    }
-
-  
-    return (
-      <div className="sliderContainer">
-      <input
-      className="sliderPrueba"
-        type="range"
-        id="sociabilidad"
-        min={1}
-        max={5}
-        step={1}
-        
-        defaultValue={valor} 
-        onChange={handleChange} 
-        onMouseUp={handleChange} 
-      />
-      <p>{valor}</p>
-      </div>
-    )
-  
   }
 
-  export default Slider
+  useEffect(function () {
+    let afinidades = [];
+    for (let i = 0; i < arrayAfinidades.length; i++) {
+      afinidades.push({ nombre: arrayAfinidades[i].nombre, valor: 1 });
+    }
+    let afinidadenJson = JSON.stringify(afinidades);
+    localStorage.setItem('afinidades', afinidadenJson);
+  }, [])
+
+const sliderJSX = arrayAfinidades.map(function (slider) {
+
+  return (
+    <SliderDibujo nombre={slider.nombre} onChange={onSliderChange} />
+  )
+})
+
+return (
+  <>
+    {sliderJSX}
+  </>
+
+);
+
+}
+export default Slider
+
