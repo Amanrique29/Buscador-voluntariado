@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
 import './Resultados.css';
 
@@ -8,6 +8,32 @@ function Resultados() {
     let afinidades = JSON.parse(localStorage.getItem('afinidades'));
 
     let listadoProvincias = JSON.parse(localStorage.getItem('provincias'));
+
+    let [actividadesPorProvincia, setActividadesPorProvincia] =  useState([])
+
+    useEffect(function () {
+
+        let provinciasEnviar = {
+            provincias: listadoProvincias
+        }
+
+        fetch('http://localhost:3000/actividadesPorAfinidades', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(provinciasEnviar)
+        }).then(function(respuesta){
+            return respuesta.json()
+        }).then (function (datos){
+            console.log(datos)
+            setActividadesPorProvincia(datos)
+
+        })
+
+
+    }, [])
+
 
 
     // if (afinidades === undefined) {
@@ -29,7 +55,16 @@ function Resultados() {
         return (
             <p>Ofertas en la provincia de {provincia}</p>
         )
-    })
+    });
+
+    const actividadesProvinciasJSX = actividadesPorProvincia.map(function (actividad) {
+        return (
+            <>
+            <h3>{actividad.titulo}</h3>
+            <p>{actividad.descripcion}</p>
+            </>
+        )
+    });
 
     return (
         <main>
@@ -39,6 +74,10 @@ function Resultados() {
             </>
             <>
                 {provinciasJSX}
+
+            </>
+            <>
+            {actividadesProvinciasJSX}
             </>
         </main>
     )
