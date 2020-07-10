@@ -8,7 +8,7 @@ function Test() {
 
     let mapaJSX = <main>
         <h3>Elige tu área geográfica</h3>
-        <img className="test-img" src="españa.jpg" alt=""></img>
+        <img className="test-img" src="spain.jpg" alt=""></img>
         <Mapa/>
         <button onClick={registrarProvincia} value="Madrid" className="botonContinuar" >Madrid</button>
         <button onClick={registrarProvincia} value="Valencia" className="botonContinuar" >Valencia</button>
