@@ -7,6 +7,7 @@ import Header from './header';
 import Inicio from './Inicio'
 import Aboutus from './nosotros';
 import Responsabilizate from './responsable';
+import Buscador from './buscador';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/responsabilizate">
           <Responsabilizate />
+        </Route>
+        <Route path="/buscador">
+          <Buscador />
         </Route>
       </BrowserRouter>
     </>
