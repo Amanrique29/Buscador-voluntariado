@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
 
+
 function Buscador() {
     let [texto, setTexto] = useState('');
     let [resultados, setResultados] = useState('');
+    let [filtrar, setFiltrar] = useState(false);
     function search() {
         let valor = document.getElementById("buscar").value.toLowerCase();
         fetch('/buscador').then(function (response) {
@@ -26,8 +28,9 @@ function Buscador() {
             if (datosFiltrados.length === 0) {
                 setTexto(<p>No hay resultados que mostrar</p>)
                 setResultados('');
+                setFiltrar('');
             } else {
-                setResultados(`${datosFiltrados.length} resultados que coinciden con tu búsqueda.`);
+                setResultados(`${datosFiltrados.length} resultado(s) que coinciden con tu búsqueda.`);
                 setTexto(datosFiltrados.map(function (response) {
                     return (
                         <>
@@ -38,15 +41,35 @@ function Buscador() {
                         </>
                     );
                 }));
+                setFiltrar('');
             };
 
         });
     };
-    console.log(texto);
+    function mostrarFiltros() {
+        setFiltrar(true)
+    };
+    function Filtros() {
+        if (filtrar === true) {
+            return (<>
+                <input type="checkbox" name="uno" id="madrid" /> <label>Madrid</label>
+                <input type="checkbox" name="dos" id="Barcelona" /> <label>Barcelona</label>
+                <input type="checkbox" name="tres" id="Valencia" /> <label>Valencia</label>
+                <input type="checkbox" name="cuatro" id="Guadalajara" /> <label>Guadalajara</label>
+            </>);
+        } else {
+            return (<button onClick={mostrarFiltros}>Filtros avanzados</button>
+            )
+        }
+    };
+
     return (
         <>
             <input type="text" id="buscar"></input>
             <button onClick={search}>Buscar</button>
+            <div>
+                <Filtros />
+            </div>
             <p>{resultados}</p>
             {texto}
         </>
