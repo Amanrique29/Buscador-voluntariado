@@ -35,6 +35,8 @@ function Slider() {
     localStorage.setItem('afinidades', afinidadenJson);
   }
 
+  
+
   useEffect(function () {
     let afinidades = [];
     for (let i = 0; i < arrayAfinidades.length; i++) {

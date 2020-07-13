@@ -5,34 +5,72 @@ import './Resultados.css';
 function Resultados() {
 
     let [resultadosSlidersJSX, setResultadosSildersJSX] = useState('');
-    let afinidades = JSON.parse(localStorage.getItem('afinidades'));
+    let listadoAfinidades = JSON.parse(localStorage.getItem('afinidades'));
 
     let listadoProvincias = JSON.parse(localStorage.getItem('provincias'));
 
-    let [actividadesPorProvincia, setActividadesPorProvincia] =  useState([])
+    // let [actividadesPorProvincia, setActividadesPorProvincia] = useState([]);
+
+    // Consultar si es preferible hacer el fetch en un useEffect o hacerlo como consecuencia de un onClick
+    let actividadesElegidas = []
 
     useEffect(function () {
 
-        let provinciasEnviar = {
-            provincias: listadoProvincias
+        let afinidadesEnviar = {
+            afinidades: listadoAfinidades
         }
 
-        fetch('http://localhost:3000/actividadesPorAfinidades', {
+        fetch('http://localhost:3000/resultadosAfinidades', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(provinciasEnviar)
-        }).then(function(respuesta){
+            body: JSON.stringify(afinidadesEnviar)
+        }).then(function (respuesta) {
             return respuesta.json()
-        }).then (function (datos){
+        }).then(function (datos) {
             console.log(datos)
-            setActividadesPorProvincia(datos)
 
+            for (let i = 0; i < datos.length; i++) {
+                for (let j = 0; j < listadoProvincias.length; j++) {
+                    for (let k = 0; k < datos[i].actividades.length; k++) {
+                        if (listadoProvincias[j] === datos[i].actividades[k].provincia) {
+                            actividadesElegidas.push(datos[i].actividades[k])
+                        }
+                    }
+                }
+            }
+
+            console.log(actividadesElegidas)
         })
 
-
     }, [])
+
+    // Comparamos las actividades con la provincia o provincias almacenadas en local storage
+
+    // useEffect(function () {
+
+    //     let provinciasEnviar = {
+    //         provincias: listadoProvincias
+    //     }
+
+    //     fetch('http://localhost:3000/actividadesPorAfinidades', {
+    //         method: 'POST',
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(provinciasEnviar)
+    //     }).then(function(respuesta){
+    //         return respuesta.json()
+    //     }).then (function (datos){
+    //         console.log(datos)
+    //         setActividadesPorProvincia(datos)
+
+    //     })
+
+
+    // }, [])
+
 
 
 
@@ -45,9 +83,12 @@ function Resultados() {
     //     setResultadosSildersJSX (<p>Tienes una sociabilidad de {afinidades[afinidades.length-1].valor}</p>)
     // }
 
-    const cualidadesJSX = afinidades.map(function (afinidad) {
+    const cualidadesJSX = listadoAfinidades.map(function (afinidad) {
         return (
-            <p>Tienes una {afinidad.nombre} de {afinidad.valor}</p>
+            <>
+
+                <p>Tienes una {afinidad.nombre} de {afinidad.valor}</p>
+            </>
         )
     })
 
@@ -57,14 +98,14 @@ function Resultados() {
         )
     });
 
-    const actividadesProvinciasJSX = actividadesPorProvincia.map(function (actividad) {
-        return (
-            <>
-            <h3>{actividad.titulo}</h3>
-            <p>{actividad.descripcion}</p>
-            </>
-        )
-    });
+    // const actividadesProvinciasJSX = actividadesPorProvincia.map(function (actividad) {
+    //     return (
+    //         <>
+    //             <h3>{actividad.titulo}</h3>
+    //             <p>{actividad.descripcion}</p>
+    //         </>
+    //     )
+    // });
 
     return (
         <main>
@@ -76,9 +117,9 @@ function Resultados() {
                 {provinciasJSX}
 
             </>
-            <>
-            {actividadesProvinciasJSX}
-            </>
+            {/* <>
+                {actividadesProvinciasJSX}
+            </> */}
         </main>
     )
 };
