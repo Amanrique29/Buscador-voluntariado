@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
 
 
+
 function Buscador() {
     let [texto, setTexto] = useState('');
     let [resultados, setResultados] = useState('');
