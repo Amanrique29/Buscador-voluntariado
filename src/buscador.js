@@ -46,10 +46,22 @@ function Buscador() {
 
         });
     };
+    
     function mostrarFiltros() {
         setFiltrar(true)
+
+        fetch('http://localhost:3000/listadoTematicas')
+        .then(function(respuesta){
+            return respuesta.json()
+        }).then(function(datos){
+            console.log(datos)
+        })
     };
+    
     function Filtros() {
+
+
+
         if (filtrar === true) {
             return (<>
                 <input type="checkbox" name="uno" id="madrid" /> <label>Madrid</label>

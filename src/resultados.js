@@ -12,7 +12,9 @@ function Resultados() {
     // let [actividadesPorProvincia, setActividadesPorProvincia] = useState([]);
 
     // Consultar si es preferible hacer el fetch en un useEffect o hacerlo como consecuencia de un onClick
-    let actividadesElegidas = []
+    let actividadesElegidas = [];
+    let [actividadesElegidasJSX, setActividadesElegidasJSX] = useState('');
+    let [temasJSX, setTemasJSX] = useState('')
 
     useEffect(function () {
 
@@ -33,43 +35,49 @@ function Resultados() {
 
             for (let i = 0; i < datos.length; i++) {
                 for (let j = 0; j < listadoProvincias.length; j++) {
-                    for (let k = 0; k < datos[i].actividades.length; k++) {
-                        if (listadoProvincias[j] === datos[i].actividades[k].provincia) {
-                            actividadesElegidas.push(datos[i].actividades[k])
-                        }
+
+                    if (listadoProvincias[j] === datos[i].actividad.provincia) {
+                        actividadesElegidas.push(datos[i])
                     }
+
                 }
             }
 
-            console.log(actividadesElegidas)
+            
+            setActividadesElegidasJSX(actividadesElegidas.map(function (activity) {
+
+           
+                console.log(activity)
+                return (
+                    <>
+                        
+                        <h3>{activity.actividad.titulo}</h3>
+                        <p>{activity.actividad.descripcion}</p>
+                        <p>Temáticas: </p>
+                        <p>
+                        {activity.tema.map(function(t, i) {
+                            if(i < activity.tema.length - 1) {
+
+                                return <>{t}, </>
+                            }
+                            return <>{t}</>
+                        })}
+                        </p>
+                    </>
+
+
+                )
+            }))
+
         })
 
     }, [])
 
-    // Comparamos las actividades con la provincia o provincias almacenadas en local storage
-
-    // useEffect(function () {
-
-    //     let provinciasEnviar = {
-    //         provincias: listadoProvincias
-    //     }
-
-    //     fetch('http://localhost:3000/actividadesPorAfinidades', {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(provinciasEnviar)
-    //     }).then(function(respuesta){
-    //         return respuesta.json()
-    //     }).then (function (datos){
-    //         console.log(datos)
-    //         setActividadesPorProvincia(datos)
-
-    //     })
 
 
-    // }, [])
+
+
+
 
 
 
@@ -117,9 +125,9 @@ function Resultados() {
                 {provinciasJSX}
 
             </>
-            {/* <>
-                {actividadesProvinciasJSX}
-            </> */}
+            <>
+                {actividadesElegidasJSX}
+            </>
         </main>
     )
 };
