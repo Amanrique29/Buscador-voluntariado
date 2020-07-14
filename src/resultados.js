@@ -4,17 +4,17 @@ import './Resultados.css';
 
 function Resultados() {
 
-    let [resultadosSlidersJSX, setResultadosSildersJSX] = useState('');
+   
     let listadoAfinidades = JSON.parse(localStorage.getItem('afinidades'));
 
     let listadoProvincias = JSON.parse(localStorage.getItem('provincias'));
 
     // let [actividadesPorProvincia, setActividadesPorProvincia] = useState([]);
 
-    // Consultar si es preferible hacer el fetch en un useEffect o hacerlo como consecuencia de un onClick
+    
     let actividadesElegidas = [];
     let [actividadesElegidasJSX, setActividadesElegidasJSX] = useState('');
-    let [temasJSX, setTemasJSX] = useState('')
+   
 
     useEffect(function () {
 
@@ -82,14 +82,7 @@ function Resultados() {
 
 
 
-    // if (afinidades === undefined) {
-    //     setResultadosSildersJSX (
-    //     <p>Tienes una sociabilidad de 1</p>) 
-    // }
-
-    // else {
-    //     setResultadosSildersJSX (<p>Tienes una sociabilidad de {afinidades[afinidades.length-1].valor}</p>)
-    // }
+   
 
     const cualidadesJSX = listadoAfinidades.map(function (afinidad) {
         return (
@@ -106,14 +99,7 @@ function Resultados() {
         )
     });
 
-    // const actividadesProvinciasJSX = actividadesPorProvincia.map(function (actividad) {
-    //     return (
-    //         <>
-    //             <h3>{actividad.titulo}</h3>
-    //             <p>{actividad.descripcion}</p>
-    //         </>
-    //     )
-    // });
+    
 
     return (
         <main>

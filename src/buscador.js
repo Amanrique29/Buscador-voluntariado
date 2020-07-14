@@ -11,6 +11,7 @@ function Buscador() {
         fetch('/buscador').then(function (response) {
             return response.json();
         }).then(function (data) {
+            console.log(data)
             let titulo;
             let pais;
             let provincia;
@@ -18,10 +19,10 @@ function Buscador() {
             let datosFiltrados = [];
             data.filter(function (datos) {
                 titulo = datos.titulo;
-                pais = datos.pais;
+                
                 provincia = datos.provincia;
                 descripcion = datos.descripcion;
-                if (titulo.toLowerCase().indexOf(valor) !== -1 || pais.toLowerCase().indexOf(valor) !== -1 || provincia.toLowerCase().indexOf(valor) !== -1) {
+                if (titulo.toLowerCase().indexOf(valor) !== -1 ||  provincia.toLowerCase().indexOf(valor) !== -1) {
                     datosFiltrados.push(datos);
                 }
             });
@@ -35,7 +36,7 @@ function Buscador() {
                     return (
                         <>
                             <h1>{response.titulo}</h1>
-                            <h2>{response.pais}</h2>
+                            
                             <h2>{response.provincia}</h2>
                             <p>{response.descripcion}</p>
                         </>
@@ -50,12 +51,6 @@ function Buscador() {
     function mostrarFiltros() {
         setFiltrar(true)
 
-        fetch('http://localhost:3000/listadoTematicas')
-        .then(function(respuesta){
-            return respuesta.json()
-        }).then(function(datos){
-            console.log(datos)
-        })
     };
     
     function Filtros() {
