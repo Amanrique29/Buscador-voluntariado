@@ -4,17 +4,17 @@ import './Resultados.css';
 
 function Resultados() {
 
-   
+
     let listadoAfinidades = JSON.parse(localStorage.getItem('afinidades'));
 
     let listadoProvincias = JSON.parse(localStorage.getItem('provincias'));
 
     // let [actividadesPorProvincia, setActividadesPorProvincia] = useState([]);
 
-    
+
     let actividadesElegidas = [];
     let [actividadesElegidasJSX, setActividadesElegidasJSX] = useState('');
-   
+
 
     useEffect(function () {
 
@@ -43,30 +43,56 @@ function Resultados() {
                 }
             }
 
-            
+
             setActividadesElegidasJSX(actividadesElegidas.map(function (activity) {
 
-           
+
                 console.log(activity)
-                return (
-                    <>
-                        
-                        <h3>{activity.actividad.titulo}</h3>
-                        <p>{activity.actividad.descripcion}</p>
-                        <p>Temáticas: </p>
-                        <p>
-                        {activity.tema.map(function(t, i) {
-                            if(i < activity.tema.length - 1) {
 
-                                return <>{t}, </>
-                            }
-                            return <>{t}</>
-                        })}
-                        </p>
-                    </>
+                // function Descripcion() {
+                    // let [desplegado, setDesplegado] = useState(false);
+                    // let description = null;
+                    // if (desplegado) {
+                    //     description =
+                    //         <div className="desplegable">
+                    //             <p>{activity.actividad.descripcion}</p>
+                    //         </div>
+                    // }
+                    // function cambiarDesplegable() {
+                    //     setDesplegado(!desplegado);
+                    // }
 
+                    return (
+                        <div className="resultadoActividades">
+                            <h3><b>{activity.actividad.titulo}</b></h3>
+                            <p><b>Organización: {activity.actividad.ong}</b></p>
+                            <p><b>Enlace: <a href={activity.actividad.webOficial}></a></b></p>
+                            <p>Provincia: {activity.actividad.provincia}</p>
+                            <p><b>Temáticas:</b> {activity.tema.map(function (t, i) {
+                                if (i < activity.tema.length - 1) {
 
-                )
+                                    return <>{t}, </>
+                                }
+                                return <>{t}</>
+                            })}</p>
+                            <div>
+                                <div className="descripcionBoton">
+                                    <p><b>Descripción</b></p>
+                                    {/* <button className="botonBusq2" onClick={cambiarDesplegable}>Leer más</button> */}
+                                    <button className="botonBusq2">Leer más</button>
+                                </div>
+                                {/* <p>{description}</p> */}
+                                <p>{activity.actividad.descripcion}</p>
+                                <p>Fechas inicio: {activity.actividad.fechaInicio} </p>
+                                <p>Fecha fin: {activity.actividad.fechaFin} </p>
+                            </div>
+                            <div>
+                                <p>ODS:Logos</p>
+                            </div>
+                        </div>
+
+                    )
+                // }
             }))
 
         })
@@ -79,10 +105,6 @@ function Resultados() {
 
 
 
-
-
-
-   
 
     const cualidadesJSX = listadoAfinidades.map(function (afinidad) {
         return (
@@ -99,7 +121,7 @@ function Resultados() {
         )
     });
 
-    
+
 
     return (
         <main>

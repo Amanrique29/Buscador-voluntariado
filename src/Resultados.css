@@ -16,5 +16,18 @@
         margin-top:10px;
         font-weight:300;
     }
+    .resultadoActividades{
+      margin-top:5%;
+      margin-left:5%;
+      margin-right:5%;
+      border: 1px black dashed;
+    }
+
+    .descripcionBoton{
+      display: flex;
+      flex-direction:row;
+      justify-content:space-between;
+      align-items:center;
+    }
 
     }
