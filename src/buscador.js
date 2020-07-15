@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
+import './Buscador.css';
 
 
 
@@ -103,8 +104,9 @@ function Buscador() {
 
                 setTematicasJSX(datos.map(function (tema) {
                     return (
-                        <>
-                            <input onChange={selectTema} defaultChecked={false} type="checkbox" id={tema.nombre} value={tema.nombre} /><label>{tema.nombre}</label>
+                        <> 
+                            <input onChange={selectTema} defaultChecked={false} type="checkbox" id={tema.nombre} value={tema.nombre} className="filtro-avanzado" />
+                            <label htmlFor={tema.nombre}>{tema.nombre}</label>
                         </>
 
                     )
@@ -141,7 +143,7 @@ function Buscador() {
 
         if (event.target.checked === true) {
 
-            setTemaSelect(temaSelect.push(unTema))
+            setTemaSelect(temaSelect.push(unTema));
         } else {
 
             for (let i = 0; i < temaSelect.length; i++) {
@@ -149,6 +151,7 @@ function Buscador() {
                     temaSelect.splice(i, 1)
                 }
             }
+           
             setTemaSelect(temaSelect)
         }
 
@@ -188,9 +191,10 @@ function Buscador() {
                 <button onClick={MostrarFiltros}>Filtros avanzados</button>
 
             </div>
-            <>
+            
+            <div className="checkboxes">
                 {tematicasJSX}
-            </>
+            </div>
             <>
             <select name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
                 <option value="Seleccione una provincia">Elige una provincia</option>
