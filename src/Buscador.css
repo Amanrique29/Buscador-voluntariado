@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  @media (max-width: 500px) {
+    label {
+    cursor: pointer;
+    padding: 2px;
+    border: solid;
+    
+    }
+    input.filtro-avanzado {
+        position: absolute;
+        left: -9999px;
+      }
+    }
+    .checkboxes{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    input:checked + label {
+        background-color: blue;
+    }
+    
