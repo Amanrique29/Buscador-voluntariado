@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import './Buscador.css';
 
 function DescripcionBuscador({ activity }) {
     let [desplegado, setDesplegado] = useState(false);
@@ -44,7 +45,10 @@ function DescripcionBuscador({ activity }) {
                 <p>Fecha fin: {activity.actividad.fechaFin} </p>
             </div>
             <div>
-                <p>ODS:Logos</p>
+                <p>{activity.ods.map(function (o) {
+                
+                return <><img className="logo-ods" src={o.logo} alt={o.nombre}/></>
+            })}</p>
             </div>
         </div>
 

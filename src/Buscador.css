@@ -19,8 +19,7 @@
         position: absolute;
         left: -9999px;
       }
-    }
-    .checkboxes{
+      .checkboxes{
         display: flex;
         justify-content: space-evenly;
         flex-wrap: wrap;
@@ -28,4 +27,12 @@
     input:checked + label {
         background-color: blue;
     }
+    img.logo-ods {
+      width: 20px;
+      height: 20px;
+    }
+  }
+    
+
+  
     
