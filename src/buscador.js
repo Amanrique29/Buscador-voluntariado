@@ -58,7 +58,7 @@ function Buscador() {
     };
 
     console.log(oportunidadesAMostrar)
-
+    
     oportunidadesAMostrarJSX = oportunidadesAMostrar.map(function (activity) {
 
         return (
@@ -182,7 +182,7 @@ function Buscador() {
             {texto}
             <p>{temaSelect.map(el => <>{el} </>)}</p>
             <div>
-                <div>{oportunidadesAMostrarJSX}</div>
+                <div>{oportunidadesAMostrarJSX.length !== 0 ? oportunidadesAMostrarJSX : <p>No hay resultados que mostrar</p>}</div>
             </div>
         </>
     )
