@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
 import './Buscador.css';
-
+import './DescripcionBuscador.js'
+import DescripcionBuscador from './DescripcionBuscador.js';
 
 
 function Buscador() {
@@ -42,7 +43,7 @@ function Buscador() {
 
         console.log(filtros)
 
-        fetch('/buscador', {
+        fetch('http://localhost:3000/buscador', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -57,39 +58,12 @@ function Buscador() {
     };
 
     console.log(oportunidadesAMostrar)
-
+    
     oportunidadesAMostrarJSX = oportunidadesAMostrar.map(function (activity) {
 
         return (
-            <div className="resultadoActividades">
-                <h3><b>{activity.actividad.titulo}</b></h3>
-                <p><b>Organización: {activity.actividad.ong}</b></p>
-                <p><b>Enlace: <a href={activity.actividad.webOficial}></a></b></p>
-                <p>Provincia: {activity.actividad.provincia}</p>
-                <p><b>Temáticas:</b> {activity.tema.map(function (t, i) {
-                    if (i < activity.tema.length - 1) {
-                        return <>{t}, </>
-                    }
-                    return <>{t}</>
-                })}</p>
-                <div>
-                    <div className="descripcionBoton">
-                        <p><b>Descripción</b></p>
-
-                        <button className="botonBusq2">Leer más</button>
-                    </div>
-
-                    <p>{activity.actividad.descripcion}</p>
-                    <p>Fechas inicio: {activity.actividad.fechaInicio} </p>
-                    <p>Fecha fin: {activity.actividad.fechaFin} </p>
-                </div>
-                <div>
-                    <p>ODS:Logos</p>
-                </div>
-            </div>
-
-        )
-
+        <DescripcionBuscador activity={activity}/>
+        );
     })
 
     function MostrarFiltros() {
@@ -101,7 +75,7 @@ function Buscador() {
 
                 setTematicasJSX(datos.map(function (tema) {
                     return (
-                        <> 
+                        <>
                             <input onChange={selectTema} defaultChecked={false} type="checkbox" id={tema.nombre} value={tema.nombre} className="filtro-avanzado" />
                             <label htmlFor={tema.nombre}>{tema.nombre}</label>
                         </>
@@ -194,7 +168,7 @@ function Buscador() {
                 <button onClick={MostrarFiltros}>Filtros avanzados</button>
 
             </div>
-            
+
             <div className="checkboxes">
                 {tematicasJSX}
             </div>
@@ -208,7 +182,7 @@ function Buscador() {
             {texto}
             <p>{temaSelect.map(el => <>{el} </>)}</p>
             <div>
-                <div>{oportunidadesAMostrarJSX}</div>
+                <div>{oportunidadesAMostrarJSX.length !== 0 ? oportunidadesAMostrarJSX : <p>No hay resultados que mostrar</p>}</div>
             </div>
         </>
     )
