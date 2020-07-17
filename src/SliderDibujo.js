@@ -13,6 +13,7 @@ function SliderDibujo(props) {
     return (
         <>
             <div className="sliderContainer">
+                <p>{props.frase}</p>
                 <input
                     className="sliderPrueba"
                     type="range"

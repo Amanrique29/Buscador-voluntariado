@@ -22,7 +22,7 @@ function Resultados() {
             afinidades: listadoAfinidades
         }
 
-        fetch('http://localhost:3000/resultadosAfinidades', {
+        fetch('resultadosAfinidades', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
