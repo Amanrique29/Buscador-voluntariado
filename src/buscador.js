@@ -43,7 +43,7 @@ function Buscador() {
 
         console.log(filtros)
 
-        fetch('http://localhost:3000/buscador', {
+        fetch('buscador', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -68,7 +68,7 @@ function Buscador() {
 
     function MostrarFiltros() {
 
-        fetch('http://localhost:3000/cargarTematicas')
+        fetch('cargarTematicas')
             .then(function (respuesta) {
                 return respuesta.json()
             }).then(function (datos) {
@@ -85,7 +85,7 @@ function Buscador() {
 
             });
 
-        fetch('http://localhost:3000/cargarProvincias')
+        fetch('cargarProvincias')
             .then(function (respuesta) {
                 return respuesta.json()
             }).then(function (datos) {

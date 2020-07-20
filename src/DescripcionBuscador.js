@@ -5,6 +5,7 @@ function DescripcionBuscador({ activity }) {
     let [desplegado, setDesplegado] = useState(false);
     let description = null;
     if (desplegado) {
+        console.log(activity)
         description = (
             <div className="desplegable">
                 <p>{activity.actividad.descripcion}</p>
