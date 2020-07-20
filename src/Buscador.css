@@ -29,9 +29,7 @@
     input:checked + label {
         background-color: blue;
     }
-<<<<<<< HEAD
-    /* img.logo-ods {
-=======
+
     .inputyBoton{
       display: flex;
       justify-content: space-evenly;
@@ -54,10 +52,9 @@
     }
 
     img.logo-ods {
->>>>>>> edd6bcf49b32a7b19f59a80e0a829bcdae107c5e
       width: 20px;
       height: 20px;
-    } */
+    } 
   
     .botonLeerMas{
       /* all: unset;  */
