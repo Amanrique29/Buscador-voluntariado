@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import $ from 'jquery'
+
 
 
 function SliderDibujo(props) {
     const [valor, setValor] = useState(1);
     let barStyle = {background: 'linear-gradient(toright, rgba(255,0,0,1) 0%, rgba(0,255,0,1) 0%)'};
-    // let $slider = $(".sliderPrueba");
-    // let $fill = $(".bar .fill");
-
-    // function setBar() {
-    //     $fill.css("width", $slider.val() + "%");
-    // }
-
-    // $slider.on("input", setBar);
-
-    // setBar();
+    
 
     function handleChange(event) {
         const valorNuevo = event.target.value;
