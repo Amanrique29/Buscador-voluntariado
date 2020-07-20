@@ -12,8 +12,6 @@ function Test() {
         <div className="provincias">
             <Mapa />
         </div>
-        <button onClick={registrarProvincia} value="Madrid" className="botonContinuar" >Madrid</button>
-        <button onClick={registrarProvincia} value="Valencia" className="botonContinuar" >Valencia</button>
         <button onClick={siguiente} className="botonContinuar" >Continuar</button>
     </main>;
 

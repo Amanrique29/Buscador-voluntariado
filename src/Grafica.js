@@ -8,9 +8,10 @@ function Grafica() {
     let afinidadesGraficaJSX = listadoAfinidades.map(function (nombre) {
 
         return (
-            <>
-                <p>{nombre.nombre}</p>
-            </>
+            <div className="leyendaPunto">
+                <img className="circulo" src="circulo.svg"/>
+                <p className="afinidadTest">{nombre.nombre}</p>
+            </div>
         )
     })
 
@@ -78,12 +79,12 @@ function Grafica() {
     })
 
     return (
-        <>
+        <div className="graficaYLeyenda">
             <div className="cajaDonut">
                 <Doughnut className="donut" data={data} options={options} />
             </div>
             <div class="leyendaGrafica">{afinidadesGraficaJSX}</div>
-        </>
+        </div>
     )
 }
 

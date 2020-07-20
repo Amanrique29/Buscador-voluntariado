@@ -68,10 +68,6 @@ function Resultados() {
                 );
             }
         }
-
-
-
-
     })
 
     function paginaSiguiente() {

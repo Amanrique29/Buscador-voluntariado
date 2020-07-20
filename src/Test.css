@@ -83,11 +83,8 @@ overflow: hidden;
     -webkit-appearance: none;
     width: 30px;
     height: 30px;
-<<<<<<< HEAD
     background-color: rgb(15,76,129);
-=======
     background-color: rgb(228, 192, 76);
->>>>>>> edd6bcf49b32a7b19f59a80e0a829bcdae107c5e
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     border-bottom-left-radius: 50%;
@@ -138,5 +135,6 @@ overflow: hidden;
     background:#c4d4e9;
     cursor:pointer;
   }
+
 
     }
