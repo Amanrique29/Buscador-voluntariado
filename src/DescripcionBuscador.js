@@ -34,10 +34,10 @@ function DescripcionBuscador({ activity }) {
             <p><b>Organización: {activity.actividad.ong}</b></p>
 
             <p><b>{activity.actividad.webOficial !== null
-            ?
-            <a href={activity.actividad.webOficial}>Ir al sitio web </a>
-            :
-            null}</b></p>
+                ?
+                <a href={activity.actividad.webOficial}>Ir al sitio web </a>
+                :
+                null}</b></p>
 
             <p>Provincia: {activity.actividad.provincia}</p>
             <p><b>Temáticas:</b> {activity.tema.map(function (t, i) {
@@ -51,8 +51,16 @@ function DescripcionBuscador({ activity }) {
                     <p><b>Descripción</b></p>
                 </div>
                 <p>{description}</p>
-                <p>Fechas inicio: {activity.actividad.fechaInicio} </p>
-                <p>Fecha fin: {activity.actividad.fechaFin} </p>
+                {activity.actividad.fechaInicio !== ''
+                    ?
+                    <p>Fecha inicio: {activity.actividad.fechaInicio} </p>
+                    :
+                    <p>Fecha inicio: N.H.</p>}
+                {activity.actividad.fechaFin !== ''
+                    ?
+                    <p>Fecha fin: {activity.actividad.fechaFin} </p>
+                    :
+                    <p>Fecha fin: N.H.</p>}
             </div>
 
 
