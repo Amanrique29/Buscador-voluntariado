@@ -183,13 +183,11 @@ function Buscador() {
     }
 
     return (
-        <>
+        <> <div className="inputyBoton">
             <input type="text" id="buscar" value={valorInput} onChange={selectValor}></input>
-            <button onClick={search}>Buscar</button>
-            <div>
-                <button onClick={MostrarFiltros}>Filtros avanzados</button>
+            <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
 
-            </div>
+        </div>
 
             <div>
                 <div className="checkboxes">
@@ -197,7 +195,7 @@ function Buscador() {
                 </div>
                 {filtrar
                     ?
-                    <select name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
+                    <select className="desplegables" name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
                         <option value="Seleccione una provincia">Elige una provincia</option>
                         {
 
@@ -215,17 +213,21 @@ function Buscador() {
                     :
                     null}
             </div>
-
+            <div className="boton-busqueda">
+            <button onClick={search}>Buscar</button>
+            </div>
             <p>{resultados}</p>
             {texto}
-            <p>{temaSelect.map(el => <>{el} </>)}</p>
+            {/* <p>{temaSelect.map(el => <>{el} </>)}</p> */}
             <div>
                 <div>{
                     busquedaRealizada
                         ?
                         oportunidadesAMostrarJSX.length !== 0
                             ?
-                            oportunidadesAMostrarJSX
+                            <>
+                            <p>Se ha obtenido un total de {oportunidadesAMostrarJSX.length} resultado(s)</p>{oportunidadesAMostrarJSX}
+                            </>
                             :
                             <p>No hay resultados que mostrar</p>
                         :

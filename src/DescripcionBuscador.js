@@ -46,6 +46,10 @@ function DescripcionBuscador({ activity }) {
                 }
                 return <>{t}</>
             })}</p>
+             <div>{activity.logotema.map(function (logo) {
+             
+                return <><img src={logo.url} className="logo-ods"/></>
+            })}</div>
             <div>
                 <div className="descripcionBoton">
                     <p><b>Descripción</b></p>

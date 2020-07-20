@@ -15,7 +15,7 @@ function Resultados() {
 
     let [actividadesElegidas, setActividadesElegidas] = useState([]);
     let [numPagina, setNumPagina] = useState(0);
-
+    let [cargando, setCargando] = useState(false)
 
     useEffect(function () {
 
@@ -24,7 +24,7 @@ function Resultados() {
         let afinidadesEnviar = {
             afinidades: listadoAfinidades
         }
-
+        setCargando(true)
         fetch('resultadosAfinidades', {
             method: 'POST',
             headers: {
@@ -48,20 +48,29 @@ function Resultados() {
             }
 
             setActividadesElegidas(arrayElegidas);
+            setCargando(false)
 
         })
 
     }, [])
 
-    const actividadesElegidasJSX= actividadesElegidas.map(function (activity, indice) {
+    const actividadesElegidasJSX = actividadesElegidas.map(function (activity, indice) {
 
         console.log(activity)
 
-        if (indice >= numPagina * 6 && indice < (numPagina * 6) + 6) {
-            return (
-                <DescripcionBuscador activity={activity} />
-            );
+        if (actividadesElegidas.length === 0) {
+            return <p>No hay resultados que mostrar</p>
+
+        } else {
+            if (indice >= numPagina * 6 && indice < (numPagina * 6) + 6) {
+                return (
+                    <DescripcionBuscador activity={activity} />
+                );
+            }
         }
+
+
+
 
     })
 
@@ -98,7 +107,16 @@ function Resultados() {
             </>
 
             <div>
-                <div>{actividadesElegidas.length !== 0 ? actividadesElegidasJSX : <p>No hay resultados que mostrar</p>}</div>
+                {cargando
+                    ?
+                    <div id="loading"></div>
+                    :
+                    !cargando && actividadesElegidas.length === 0
+                        ?
+                        <p>No hay resultados que mostrar</p>
+                        :
+                        <> <p>Hay un total de {actividadesElegidas.length} resultado(s)</p> {actividadesElegidasJSX}</>
+                }
             </div>
             <div className="botonesAtrasSiguiente">
             {
