@@ -4,13 +4,13 @@ import React, { useState, useEffect } from 'react';
 
 function SliderDibujo(props) {
     const [valor, setValor] = useState(1);
-    let barStyle = {background: 'linear-gradient(toright, rgba(255,0,0,1) 0%, rgba(0,255,0,1) 0%)'};
+    let porcentaje = (valor - 1) * 25;
+    let barStyle = {background: `linear-gradient(to right, rgb(228, 192, 76) ${porcentaje}%, white ${porcentaje}%)`};
     
 
     function handleChange(event) {
         const valorNuevo = event.target.value;
-        let porcentaje = (valorNuevo - 1) * 25;
-        barStyle = {background: `linear-gradient(toright, rgba(255,0,0,1) ${porcentaje}%, rgba(0,255,0,1) ${porcentaje}%)`};
+        
         setValor(valorNuevo);
         props.onChange(props.nombre, valorNuevo);
       

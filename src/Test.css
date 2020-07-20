@@ -48,7 +48,6 @@ overflow: hidden;
 
 .slider-container .bar .fill {
   display: block;
-  width: 50%;
   height: 100%;
   background-color: teal;
 }
@@ -72,7 +71,7 @@ overflow: hidden;
     -webkit-appearance: none;
     width: 30px;
     height: 30px;
-    background-color: teal;
+    background-color: rgb(228, 192, 76);
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     border-bottom-left-radius: 50%;
@@ -90,7 +89,7 @@ overflow: hidden;
  .slider-container .sliderPrueba::-webkit-slider-thumb:hover {
     border-bottom-left-radius: 0;
     transform: rotate(-45deg) translate(75%, -75%);
-    box-shadow: 0 0 0 10px rgb(131, 60, 60)
+    box-shadow: 0 0 0 10px rgb(255, 255, 255)
   }
 
   .slider-container .sliderPrueba:active::-webkit-slider-thumb{
