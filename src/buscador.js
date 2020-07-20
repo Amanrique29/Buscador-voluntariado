@@ -13,14 +13,21 @@ function Buscador() {
     let [provinciasJSX, setProvinciasJSX] = useState('')
     let [valorInput, setValorInput] = useState('');
     let [temaSelect, setTemaSelect] = useState([]);
+
+    // ESTADO PARA PAGINACION
     let [oportunidadesAMostrar, setOportunidadesAMostrar] = useState([]);
     // let temaSelect=[];
     let [provinciaSelect, setProvinciaSelect] = useState("");
+
+    //ESTADO PARA PAGINACION
+    let [numPagina, setNumPagina]=useState(0);
 
     let oportunidadesAMostrarJSX;
 
 
     function search() {
+
+        setNumPagina(0);
 
         let filtros = {
             palabra: "",
@@ -43,7 +50,7 @@ function Buscador() {
 
         console.log(filtros)
 
-        fetch('http://localhost:3000/buscador', {
+        fetch('buscador', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -53,22 +60,26 @@ function Buscador() {
             return respuesta.json()
         }).then(function (datos) {
             console.log(datos)
+            
             setOportunidadesAMostrar(datos);
         })
     };
 
+    //¿PODRÍA DAR ERROR PORQUE NO SE HA HECHO EL FETCH Y NO SABE LO QUE HAY DENTRO DE OPORTUNIDADES A MOSTRAR?
     console.log(oportunidadesAMostrar)
     
-    oportunidadesAMostrarJSX = oportunidadesAMostrar.map(function (activity) {
+    oportunidadesAMostrarJSX = oportunidadesAMostrar.map(function (activity,indice) {
+            if(indice>=numPagina*6 && indice<(numPagina*6) + 6){
 
-        return (
-        <DescripcionBuscador activity={activity}/>
-        );
+                return (
+                    <DescripcionBuscador activity={activity}/>
+                    );
+                }
     })
 
     function MostrarFiltros() {
 
-        fetch('http://localhost:3000/cargarTematicas')
+        fetch('cargarTematicas')
             .then(function (respuesta) {
                 return respuesta.json()
             }).then(function (datos) {
@@ -85,7 +96,7 @@ function Buscador() {
 
             });
 
-        fetch('http://localhost:3000/cargarProvincias')
+        fetch('cargarProvincias')
             .then(function (respuesta) {
                 return respuesta.json()
             }).then(function (datos) {
@@ -145,7 +156,7 @@ function Buscador() {
             temas: temaSelect
         }
 
-        fetch('http://localhost:3000/actividadesPorTematica', {
+        fetch('actividadesPorTematica', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -158,6 +169,23 @@ function Buscador() {
         })
 
 
+    }
+
+    function paginaSiguiente(){
+        if(oportunidadesAMostrar.length>6 && numPagina*6+6 < oportunidadesAMostrar.length){
+            setNumPagina(numPagina+1)
+        }
+    }
+
+    function paginaAnterior(){
+        setNumPagina(numPagina-1) 
+    }
+
+    let numTotalPaginas;
+    if (oportunidadesAMostrar.length%6===0){
+        numTotalPaginas=oportunidadesAMostrar.length/6
+    } else if (oportunidadesAMostrar.length%6!==0){
+        numTotalPaginas=Math.floor((oportunidadesAMostrar.length/6 +1))
     }
 
     return (
@@ -184,6 +212,17 @@ function Buscador() {
             <div>
                 <div>{oportunidadesAMostrarJSX.length !== 0 ? oportunidadesAMostrarJSX : <p>No hay resultados que mostrar</p>}</div>
             </div>
+            {
+
+             numPagina*6+6<=6?null:<button onClick={paginaAnterior}>Anterior </button>
+            }
+            {
+                numPagina*6+6<oportunidadesAMostrar.length?<button onClick={paginaSiguiente}>Siguiente </button>: null
+                
+            }
+            {
+            numTotalPaginas===0?null:<p>Página {numPagina+1} de {numTotalPaginas}</p>
+            }
         </>
     )
 };

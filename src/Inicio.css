@@ -43,6 +43,7 @@
       }
       div.test h1{
         font-weight:100;
+        top:100px;
       }
 
       .buscadorConvencional{
@@ -69,5 +70,12 @@
       /* .test-img{
         width: 100%;
       } */
+
+      .inicioImagen{
+        margin-top:60px;
+        width:380px;
+        position:relative;
+      }
+
     
   }

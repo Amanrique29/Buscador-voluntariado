@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
 import './Resultados.css';
+import Chart from 'chart.js';
+import Grafica from './Grafica';
+import DescripcionBuscador from './DescripcionBuscador.js';
 
 function Resultados() {
 
@@ -9,14 +12,14 @@ function Resultados() {
 
     let listadoProvincias = JSON.parse(localStorage.getItem('provincias'));
 
-    // let [actividadesPorProvincia, setActividadesPorProvincia] = useState([]);
 
-
-    let actividadesElegidas = [];
-    let [actividadesElegidasJSX, setActividadesElegidasJSX] = useState('');
+    let [actividadesElegidas, setActividadesElegidas] = useState([]);
+    let [numPagina, setNumPagina] = useState(0);
 
 
     useEffect(function () {
+
+        setNumPagina(0);
 
         let afinidadesEnviar = {
             afinidades: listadoAfinidades
@@ -33,87 +36,51 @@ function Resultados() {
         }).then(function (datos) {
             console.log(datos)
 
+            let arrayElegidas = [];
+
             for (let i = 0; i < datos.length; i++) {
                 for (let j = 0; j < listadoProvincias.length; j++) {
 
                     if (listadoProvincias[j] === datos[i].actividad.provincia) {
-                        actividadesElegidas.push(datos[i])
+                        arrayElegidas.push(datos[i])
                     }
-
                 }
             }
 
-
-            setActividadesElegidasJSX(actividadesElegidas.map(function (activity) {
-
-
-                console.log(activity)
-
-                // function Descripcion() {
-                    // let [desplegado, setDesplegado] = useState(false);
-                    // let description = null;
-                    // if (desplegado) {
-                    //     description =
-                    //         <div className="desplegable">
-                    //             <p>{activity.actividad.descripcion}</p>
-                    //         </div>
-                    // }
-                    // function cambiarDesplegable() {
-                    //     setDesplegado(!desplegado);
-                    // }
-
-                    return (
-                        <div className="resultadoActividades">
-                            <h3><b>{activity.actividad.titulo}</b></h3>
-                            <p><b>Organización: {activity.actividad.ong}</b></p>
-                            <p><b>Enlace: <a href={activity.actividad.webOficial}></a></b></p>
-                            <p>Provincia: {activity.actividad.provincia}</p>
-                            <p><b>Temáticas:</b> {activity.tema.map(function (t, i) {
-                                if (i < activity.tema.length - 1) {
-
-                                    return <>{t}, </>
-                                }
-                                return <>{t}</>
-                            })}</p>
-                            <div>
-                                <div className="descripcionBoton">
-                                    <p><b>Descripción</b></p>
-                                    {/* <button className="botonBusq2" onClick={cambiarDesplegable}>Leer más</button> */}
-                                    <button className="botonBusq2">Leer más</button>
-                                </div>
-                                {/* <p>{description}</p> */}
-                                <p>{activity.actividad.descripcion}</p>
-                                <p>Fechas inicio: {activity.actividad.fechaInicio} </p>
-                                <p>Fecha fin: {activity.actividad.fechaFin} </p>
-                            </div>
-                            <div>
-                                <p>ODS:Logos</p>
-                            </div>
-                        </div>
-
-                    )
-                // }
-            }))
+            setActividadesElegidas(arrayElegidas);
 
         })
 
     }, [])
 
+    const actividadesElegidasJSX= actividadesElegidas.map(function (activity, indice) {
 
+        console.log(activity)
 
+        if (indice >= numPagina * 6 && indice < (numPagina * 6) + 6) {
+            return (
+                <DescripcionBuscador activity={activity} />
+            );
+        }
 
-
-
-
-
-    const cualidadesJSX = listadoAfinidades.map(function (afinidad) {
-        return (
-            <>
-
-                <p>Tienes una {afinidad.nombre} de {afinidad.valor}</p>
-            </>
-        )
     })
+
+    function paginaSiguiente() {
+        if (actividadesElegidas.length > 6 && numPagina * 6 + 6 < actividadesElegidas.length) {
+            setNumPagina(numPagina + 1)
+        }
+    }
+
+    function paginaAnterior() {
+        setNumPagina(numPagina - 1)
+    }
+
+    let numTotalPaginas;
+    if (actividadesElegidas.length % 6 === 0) {
+        numTotalPaginas = actividadesElegidas.length / 6
+    } else if (actividadesElegidas.length % 6 !== 0) {
+        numTotalPaginas = Math.floor((actividadesElegidas.length / 6 + 1))
+    }
 
     const provinciasJSX = listadoProvincias.map(function (provincia) {
         return (
@@ -121,21 +88,30 @@ function Resultados() {
         )
     });
 
-
-
     return (
         <main>
             <h3>Resultados del test</h3>
-            <>
-                {cualidadesJSX}
-            </>
+            <Grafica />
+
             <>
                 {provinciasJSX}
+            </>
 
-            </>
-            <>
-                {actividadesElegidasJSX}
-            </>
+            <div>
+                <div>{actividadesElegidas.length !== 0 ? actividadesElegidasJSX : <p>No hay resultados que mostrar</p>}</div>
+            </div>
+            {
+
+                numPagina * 6 + 6 <= 6 ? null : <button onClick={paginaAnterior}>Anterior </button>
+            }
+            {
+                numPagina * 6 + 6 < actividadesElegidas.length ? <button onClick={paginaSiguiente}>Siguiente </button> : null
+
+            }
+            {
+                numTotalPaginas === 0 ? null : <p>Página {numPagina + 1} de {numTotalPaginas}</p>
+            }
+
         </main>
     )
 };
