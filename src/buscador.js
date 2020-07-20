@@ -195,7 +195,7 @@ function Buscador() {
                 </div>
                 {filtrar
                     ?
-                    <select name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
+                    <select className="desplegable" name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
                         <option value="Seleccione una provincia">Elige una provincia</option>
                         {
 
@@ -213,7 +213,9 @@ function Buscador() {
                     :
                     null}
             </div>
+            <div className="boton-busqueda">
             <button onClick={search}>Buscar</button>
+            </div>
             <p>{resultados}</p>
             {texto}
             <p>{temaSelect.map(el => <>{el} </>)}</p>

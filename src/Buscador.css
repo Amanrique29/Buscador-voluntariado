@@ -40,6 +40,15 @@
     .ancho{
       width: 41%;
     }
+    .desplegable{
+      margin-left: 6%;
+      width: 41%;
+    }
+    .boton-busqueda{
+      display: flex;
+      justify-content: center;
+      margin-top: 5%;
+    }
 
     img.logo-ods {
       width: 20px;
