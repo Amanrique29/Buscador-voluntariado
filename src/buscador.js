@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
 import './Buscador.css';
 import './DescripcionBuscador.js'
@@ -13,17 +13,43 @@ function Buscador() {
     let [valorInput, setValorInput] = useState('');
     let [temaSelect, setTemaSelect] = useState([]);
     let [provincias, setProvincias] = useState([]);
-    let [busquedaRealizada, setBusquedaRealizada] = useState(false);
+    // let [busquedaRealizada, setBusquedaRealizada] = useState(false);
+    let [cargando, setCargando] = useState(false)
+
+    let oportunidadesAMostrarJSX;
 
     // ESTADO PARA PAGINACION
     let [oportunidadesAMostrar, setOportunidadesAMostrar] = useState([]);
+
+    useEffect(function () {
+        let sinFiltros = {
+            palabra: "",
+            tematicas: temaSelect,
+            provincia: ""
+        }
+        setCargando(true)
+        fetch('buscador', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sinFiltros)
+        }).then(function (respuesta) {
+            return respuesta.json()
+        }).then(function (datos) {
+            console.log(datos)
+            setOportunidadesAMostrar(datos)
+            setCargando(false)
+        })
+
+    }, [])
     // let temaSelect=[];
     let [provinciaSelect, setProvinciaSelect] = useState("");
 
     //ESTADO PARA PAGINACION
     let [numPagina, setNumPagina] = useState(0);
 
-    let oportunidadesAMostrarJSX;
+
 
 
     function search() {
@@ -36,7 +62,7 @@ function Buscador() {
             provincia: ""
         }
 
-
+        setCargando(true)
         if (valorInput !== "") {
             filtros.palabra = valorInput
         }
@@ -63,7 +89,8 @@ function Buscador() {
             console.log(datos)
 
             setOportunidadesAMostrar(datos);
-            setBusquedaRealizada(true);
+            setCargando(false)
+
         })
     };
 
@@ -214,37 +241,36 @@ function Buscador() {
                     null}
             </div>
             <div className="boton-busqueda">
-            <button onClick={search}>Buscar</button>
+                <button onClick={search}>Buscar</button>
             </div>
             <p>{resultados}</p>
             {texto}
             {/* <p>{temaSelect.map(el => <>{el} </>)}</p> */}
             <div>
                 <div>{
-                    busquedaRealizada
+                    cargando
                         ?
-                        oportunidadesAMostrarJSX.length !== 0
-                            ?
-                            <>
+                        <div id="loading"></div> :
+
+                        <>
                             <p>Se ha obtenido un total de {oportunidadesAMostrarJSX.length} resultado(s)</p>{oportunidadesAMostrarJSX}
-                            </>
-                            :
-                            <p>No hay resultados que mostrar</p>
-                        :
-                        null
+                            {
+
+                                numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
+                            }
+                            {
+                                numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
+
+                            }
+                            {
+                                numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
+                            }
+                        </>
+
                 }</div>
             </div>
-            {
 
-                numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
-            }
-            {
-                numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
 
-            }
-            {
-                numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
-            }
         </>
     )
 };
