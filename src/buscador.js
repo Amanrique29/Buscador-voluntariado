@@ -195,7 +195,7 @@ function Buscador() {
                 </div>
                 {filtrar
                     ?
-                    <select className="desplegable" name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
+                    <select className="desplegables" name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
                         <option value="Seleccione una provincia">Elige una provincia</option>
                         {
 
@@ -218,7 +218,7 @@ function Buscador() {
             </div>
             <p>{resultados}</p>
             {texto}
-            <p>{temaSelect.map(el => <>{el} </>)}</p>
+            {/* <p>{temaSelect.map(el => <>{el} </>)}</p> */}
             <div>
                 <div>{
                     busquedaRealizada

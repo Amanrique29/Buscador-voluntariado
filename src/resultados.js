@@ -4,7 +4,6 @@ import './Resultados.css';
 import Chart from 'chart.js';
 import Grafica from './Grafica';
 import DescripcionBuscador from './DescripcionBuscador.js';
-import ReactSpinner from 'react-bootstrap-spinner'
 
 function Resultados() {
 
@@ -108,7 +107,16 @@ function Resultados() {
             </>
 
             <div>
-                {cargando ?  <div id="loading"></div>: actividadesElegidasJSX}
+                {cargando
+                    ?
+                    <div id="loading"></div>
+                    :
+                    !cargando && actividadesElegidas.length === 0
+                        ?
+                        <p>No hay resultados que mostrar</p>
+                        :
+                        <> <p>Hay un total de {actividadesElegidas.length} resultado(s)</p> {actividadesElegidasJSX}</>
+                }
             </div>
             {
 
