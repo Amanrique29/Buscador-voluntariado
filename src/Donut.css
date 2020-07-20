@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+  }
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  @media (max-width: 500px) {
+    body {
+        padding-top: 80px;
+      }
+    .cajaDonut{
+        margin-top:40px;
+       display:flex;
+       flex-direction:row; 
+    }
+    .donut{
+        width:100%;
+        height: 100%;
+    }
+
+    canvas{
+        width: 600px !important;
+        height: 300px !important;
+    }
+    }
