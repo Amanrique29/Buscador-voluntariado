@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .provinciaDibujo{
+    fill: #d9d4ba;
+    stroke: white;
+  }
+
+  .provinciaDibujo{
+    fill: #d9d4ba;
+    stroke: white;
+  }
+
+  .provinciaDibujo:hover{
+    fill: rgb(15,76,129);
+    stroke: white;
+    cursor:pointer;
+  }
+
+  @media (max-width: 500px) {
+    body {
+        padding-top: 80px;
+      }
+    .provincias{
+        margin-left:0;
+        width:600px;
+        height:600px;
+    }
+  }

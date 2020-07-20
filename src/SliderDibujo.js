@@ -13,17 +13,15 @@ function SliderDibujo(props) {
         barStyle = {background: `linear-gradient(toright, rgba(255,0,0,1) ${porcentaje}%, rgba(0,255,0,1) ${porcentaje}%)`};
         setValor(valorNuevo);
         props.onChange(props.nombre, valorNuevo);
-      
     }
 
     return (
         <>
             <div className="sliderContainer">
-                <p>{props.frase}</p>
+                <p className="fraseSlider">{props.frase}</p>
                 <div className="slider-container">
                     <span className="bar"><span className="fill" style={barStyle}></span></span>
                     <input
-                        
                         className="sliderPrueba"
                         type="range"
                         min={1}
@@ -34,7 +32,14 @@ function SliderDibujo(props) {
                         onMouseUp={handleChange}
                     />
                 </div>
-                <p>{valor}</p>
+                <div className="stepsSlider">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                </div>
+                {/* <p>Puntuación: {valor}</p> */}
             </div>
         </>
     );

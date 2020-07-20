@@ -36,4 +36,15 @@
       align-items:center;
     }
 
+    .botonesAtrasSiguiente{
+      display:flex;
+      flex-direction:row;
+      justify-content:space-between;
+    }
+
+    .paginaActual{
+      font-size:13px;
+      margin-bottom: 10px;
+    }
+
     }

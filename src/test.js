@@ -8,8 +8,10 @@ function Test() {
 
     let mapaJSX = <main>
         <h3>Elige tu área geográfica</h3>
-        <img className="test-img" src="spain.jpg" alt=""></img>
-        <Mapa/>
+        {/* <img className="test-img" src="spain.jpg" alt=""></img> */}
+        <div className="provincias">
+            <Mapa />
+        </div>
         <button onClick={registrarProvincia} value="Madrid" className="botonContinuar" >Madrid</button>
         <button onClick={registrarProvincia} value="Valencia" className="botonContinuar" >Valencia</button>
         <button onClick={siguiente} className="botonContinuar" >Continuar</button>
@@ -19,20 +21,14 @@ function Test() {
 
     let slidersJSX = <main>
         <h3>Define tus preferencias</h3>
-        <Slider provincias={provincias}/>
+        <Slider provincias={provincias} />
 
-        <button onClick={siguiente} className="botonContinuar" >Continuar</button>
-    </main>;
-
-    let temasJSX = <main>
-        <h3>Elige entre las temáticas</h3>
-        <img className="test-img" src="temas.png" alt=""></img>
         <Link to="/resultados" className="botonContinuar">Resultados</Link>
     </main>;
 
     let [test, setTest] = useState(mapaJSX);
     let [num, setNum] = useState(1);
-    
+
     //Cogemos el valor de la provincia para guardarlo en el array provincias[] si no existe el valor dentro
     function registrarProvincia(event) {
         console.log(event.target.value);
@@ -53,9 +49,6 @@ function Test() {
             case 1:
                 setTest(slidersJSX);
                 setNum(num++);
-                break;
-            case 2:
-                setTest(temasJSX);
                 break;
             default:
                 console.log("Ha habido un error.");

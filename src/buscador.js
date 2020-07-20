@@ -234,14 +234,14 @@ function Buscador() {
             </div>
             {
 
-                numPagina * 6 + 6 <= 6 ? null : <button onClick={paginaAnterior}>Anterior </button>
+                numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
             }
             {
-                numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button onClick={paginaSiguiente}>Siguiente </button> : null
+                numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
 
             }
             {
-                numTotalPaginas === 0 ? null : <p>Página {numPagina + 1} de {numTotalPaginas}</p>
+                numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
             }
         </>
     )

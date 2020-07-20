@@ -63,7 +63,6 @@ function DescripcionBuscador({ activity }) {
                     <p>Fecha fin: N.H.</p>}
             </div>
 
-
             <div>
                 <p>{activity.ods.map(function (o) {
 

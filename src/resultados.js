@@ -100,16 +100,18 @@ function Resultados() {
             <div>
                 <div>{actividadesElegidas.length !== 0 ? actividadesElegidasJSX : <p>No hay resultados que mostrar</p>}</div>
             </div>
+            <div className="botonesAtrasSiguiente">
             {
 
-                numPagina * 6 + 6 <= 6 ? null : <button onClick={paginaAnterior}>Anterior </button>
+                numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
             }
             {
-                numPagina * 6 + 6 < actividadesElegidas.length ? <button onClick={paginaSiguiente}>Siguiente </button> : null
+                numPagina * 6 + 6 < actividadesElegidas.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
 
             }
+            </div>
             {
-                numTotalPaginas === 0 ? null : <p>Página {numPagina + 1} de {numTotalPaginas}</p>
+                numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
             }
 
         </main>

@@ -40,7 +40,6 @@ let arrayAfinidades = [
 ];
 
 
-
 function Slider() {
 
 
@@ -69,14 +68,12 @@ function Slider() {
     localStorage.setItem('afinidades', afinidadenJson);
   }
 
-
   const sliderJSX = arrayAfinidades.map(function (slider) {
 
     return (
       <SliderDibujo nombre={slider.nombre} frase={slider.frase} onChange={onSliderChange} />
     )
   })
-
 
   return (
     <>
