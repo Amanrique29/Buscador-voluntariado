@@ -13,7 +13,9 @@
     cursor: pointer;
     padding: 2px;
     border: solid;
-    
+    width: 175px;
+    margin-bottom: 2%;
+    text-align: center;
     }
     input.filtro-avanzado {
         position: absolute;
@@ -27,6 +29,27 @@
     input:checked + label {
         background-color: blue;
     }
+    .inputyBoton{
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 3%;
+    }
+    input#buscar{
+      width: 41%;
+    }
+    .ancho{
+      width: 41%;
+    }
+    .desplegable{
+      margin-left: 6%;
+      width: 41%;
+    }
+    .boton-busqueda{
+      display: flex;
+      justify-content: center;
+      margin-top: 5%;
+    }
+
     img.logo-ods {
       width: 20px;
       height: 20px;

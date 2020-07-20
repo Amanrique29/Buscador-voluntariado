@@ -10,9 +10,10 @@ function Buscador() {
     let [resultados, setResultados] = useState('');
     let [filtrar, setFiltrar] = useState(false);
     let [tematicasJSX, setTematicasJSX] = useState('');
-    let [provinciasJSX, setProvinciasJSX] = useState('')
     let [valorInput, setValorInput] = useState('');
     let [temaSelect, setTemaSelect] = useState([]);
+    let [provincias, setProvincias] = useState([]);
+    let [busquedaRealizada, setBusquedaRealizada] = useState(false);
 
     // ESTADO PARA PAGINACION
     let [oportunidadesAMostrar, setOportunidadesAMostrar] = useState([]);
@@ -20,7 +21,7 @@ function Buscador() {
     let [provinciaSelect, setProvinciaSelect] = useState("");
 
     //ESTADO PARA PAGINACION
-    let [numPagina, setNumPagina]=useState(0);
+    let [numPagina, setNumPagina] = useState(0);
 
     let oportunidadesAMostrarJSX;
 
@@ -60,21 +61,22 @@ function Buscador() {
             return respuesta.json()
         }).then(function (datos) {
             console.log(datos)
-            
+
             setOportunidadesAMostrar(datos);
+            setBusquedaRealizada(true);
         })
     };
 
     //¿PODRÍA DAR ERROR PORQUE NO SE HA HECHO EL FETCH Y NO SABE LO QUE HAY DENTRO DE OPORTUNIDADES A MOSTRAR?
     console.log(oportunidadesAMostrar)
-    
-    oportunidadesAMostrarJSX = oportunidadesAMostrar.map(function (activity,indice) {
-            if(indice>=numPagina*6 && indice<(numPagina*6) + 6){
 
-                return (
-                    <DescripcionBuscador activity={activity}/>
-                    );
-                }
+    oportunidadesAMostrarJSX = oportunidadesAMostrar.map(function (activity, indice) {
+        if (indice >= numPagina * 6 && indice < (numPagina * 6) + 6) {
+
+            return (
+                <DescripcionBuscador activity={activity} />
+            );
+        }
     })
 
     function MostrarFiltros() {
@@ -100,16 +102,8 @@ function Buscador() {
             .then(function (respuesta) {
                 return respuesta.json()
             }).then(function (datos) {
-
-                setProvinciasJSX(datos.map(function (provincia) {
-                    return (
-                        <>
-                            <option value={provincia}>{provincia}</option>
-                        </>
-
-                    )
-                }))
-
+                setProvincias(datos);
+                setFiltrar(true);
             })
 
     };
@@ -171,57 +165,85 @@ function Buscador() {
 
     }
 
-    function paginaSiguiente(){
-        if(oportunidadesAMostrar.length>6 && numPagina*6+6 < oportunidadesAMostrar.length){
-            setNumPagina(numPagina+1)
+    function paginaSiguiente() {
+        if (oportunidadesAMostrar.length > 6 && numPagina * 6 + 6 < oportunidadesAMostrar.length) {
+            setNumPagina(numPagina + 1)
         }
     }
 
-    function paginaAnterior(){
-        setNumPagina(numPagina-1) 
+    function paginaAnterior() {
+        setNumPagina(numPagina - 1)
     }
 
     let numTotalPaginas;
-    if (oportunidadesAMostrar.length%6===0){
-        numTotalPaginas=oportunidadesAMostrar.length/6
-    } else if (oportunidadesAMostrar.length%6!==0){
-        numTotalPaginas=Math.floor((oportunidadesAMostrar.length/6 +1))
+    if (oportunidadesAMostrar.length % 6 === 0) {
+        numTotalPaginas = oportunidadesAMostrar.length / 6
+    } else if (oportunidadesAMostrar.length % 6 !== 0) {
+        numTotalPaginas = Math.floor((oportunidadesAMostrar.length / 6 + 1))
     }
 
     return (
-        <>
+        <> <div className="inputyBoton">
             <input type="text" id="buscar" value={valorInput} onChange={selectValor}></input>
-            <button onClick={search}>Buscar</button>
+            <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
+
+        </div>
+
             <div>
-                <button onClick={MostrarFiltros}>Filtros avanzados</button>
+                <div className="checkboxes">
+                    {tematicasJSX}
+                </div>
+                {filtrar
+                    ?
+                    <select className="desplegable" name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
+                        <option value="Seleccione una provincia">Elige una provincia</option>
+                        {
 
-            </div>
+                            provincias.map(function (provincia) {
+                                return (
+                                    <>
+                                        <option value={provincia}>{provincia}</option>
+                                    </>
 
-            <div className="checkboxes">
-                {tematicasJSX}
+                                )
+                            })
+
+                        }
+                    </select>
+                    :
+                    null}
             </div>
-            <>
-                <select name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
-                    <option value="Seleccione una provincia">Elige una provincia</option>
-                    {provinciasJSX}
-                </select>
-            </>
+            <div className="boton-busqueda">
+            <button onClick={search}>Buscar</button>
+            </div>
             <p>{resultados}</p>
             {texto}
             <p>{temaSelect.map(el => <>{el} </>)}</p>
             <div>
-                <div>{oportunidadesAMostrarJSX.length !== 0 ? oportunidadesAMostrarJSX : <p>No hay resultados que mostrar</p>}</div>
+                <div>{
+                    busquedaRealizada
+                        ?
+                        oportunidadesAMostrarJSX.length !== 0
+                            ?
+                            <>
+                            <p>Se ha obtenido un total de {oportunidadesAMostrarJSX.length} resultado(s)</p>{oportunidadesAMostrarJSX}
+                            </>
+                            :
+                            <p>No hay resultados que mostrar</p>
+                        :
+                        null
+                }</div>
             </div>
             {
 
-             numPagina*6+6<=6?null:<button onClick={paginaAnterior}>Anterior </button>
+                numPagina * 6 + 6 <= 6 ? null : <button onClick={paginaAnterior}>Anterior </button>
             }
             {
-                numPagina*6+6<oportunidadesAMostrar.length?<button onClick={paginaSiguiente}>Siguiente </button>: null
-                
+                numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button onClick={paginaSiguiente}>Siguiente </button> : null
+
             }
             {
-            numTotalPaginas===0?null:<p>Página {numPagina+1} de {numTotalPaginas}</p>
+                numTotalPaginas === 0 ? null : <p>Página {numPagina + 1} de {numTotalPaginas}</p>
             }
         </>
     )
