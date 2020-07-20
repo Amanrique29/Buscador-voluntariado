@@ -29,7 +29,10 @@
     input:checked + label {
         background-color: blue;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f8ddc223e00e81441b95f4a0dc7f66055a33437
     .inputyBoton{
       display: flex;
       justify-content: space-evenly;
@@ -51,10 +54,17 @@
       margin-top: 5%;
     }
 
+<<<<<<< HEAD
     img.logo-ods {
       width: 20px;
       height: 20px;
     } 
+=======
+    /* img.logo-ods {
+      width: 20px;
+      height: 20px;
+    }  */
+>>>>>>> 6f8ddc223e00e81441b95f4a0dc7f66055a33437
   
     .botonLeerMas{
       /* all: unset;  */
