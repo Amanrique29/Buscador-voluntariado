@@ -183,13 +183,11 @@ function Buscador() {
     }
 
     return (
-        <>
+        <> <div className="inputyBoton">
             <input type="text" id="buscar" value={valorInput} onChange={selectValor}></input>
-            <button onClick={search}>Buscar</button>
-            <div>
-                <button onClick={MostrarFiltros}>Filtros avanzados</button>
+            <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
 
-            </div>
+        </div>
 
             <div>
                 <div className="checkboxes">
@@ -215,7 +213,7 @@ function Buscador() {
                     :
                     null}
             </div>
-
+            <button onClick={search}>Buscar</button>
             <p>{resultados}</p>
             {texto}
             <p>{temaSelect.map(el => <>{el} </>)}</p>
