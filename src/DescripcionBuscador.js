@@ -32,7 +32,13 @@ function DescripcionBuscador({ activity }) {
         <div className="resultadoActividades">
             <h3><b>{activity.actividad.titulo}</b></h3>
             <p><b>Organización: {activity.actividad.ong}</b></p>
-            <p><b><a href={activity.actividad.webOficial}>Ir al sitio web </a></b></p>
+
+            <p><b>{activity.actividad.webOficial !== null
+            ?
+            <a href={activity.actividad.webOficial}>Ir al sitio web </a>
+            :
+            null}</b></p>
+
             <p>Provincia: {activity.actividad.provincia}</p>
             <p><b>Temáticas:</b> {activity.tema.map(function (t, i) {
                 if (i < activity.tema.length - 1) {
