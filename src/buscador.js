@@ -223,7 +223,9 @@ function Buscador() {
                         ?
                         oportunidadesAMostrarJSX.length !== 0
                             ?
-                            oportunidadesAMostrarJSX
+                            <>
+                            <p>Se ha obtenido un total de {oportunidadesAMostrarJSX.length} resultado(s)</p>{oportunidadesAMostrarJSX}
+                            </>
                             :
                             <p>No hay resultados que mostrar</p>
                         :
