@@ -211,7 +211,7 @@ function Buscador() {
 
     return (
         <> <div className="inputyBoton">
-            <input type="text" id="buscar" value={valorInput} onChange={selectValor}></input>
+            <input type="text" placeholder="  Teclea lo que quieras" id="buscar" value={valorInput} onChange={selectValor}></input>
             <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
 
         </div>
@@ -241,7 +241,7 @@ function Buscador() {
                     null}
             </div>
             <div className="boton-busqueda">
-                <button onClick={search}>Buscar</button>
+                <button id="botonBusq"onClick={search}>Buscar</button>
             </div>
             <p>{resultados}</p>
             {texto}
@@ -252,8 +252,10 @@ function Buscador() {
                         ?
                         <div id="loading"></div> :
 
-                        <>
-                            <p>Se ha obtenido un total de {oportunidadesAMostrarJSX.length} resultado(s)</p>{oportunidadesAMostrarJSX}
+                        <div className="contenidoFichas">
+                            <p className="numResultados">Se ha obtenido un total de {oportunidadesAMostrarJSX.length} resultado(s)</p>{oportunidadesAMostrarJSX}
+                            <div className="botonesAtrasSiguiente">
+                                
                             {
 
                                 numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
@@ -262,10 +264,11 @@ function Buscador() {
                                 numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
 
                             }
+                            </div>
                             {
                                 numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
                             }
-                        </>
+                        </div>
 
                 }</div>
             </div>

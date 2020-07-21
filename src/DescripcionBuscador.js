@@ -39,7 +39,7 @@ function DescripcionBuscador({ activity }) {
                 :
                 null}</b></p>
 
-            <p>Provincia: {activity.actividad.provincia}</p>
+            <p><b>Provincia: {activity.actividad.provincia}</b></p>
             <p><b>Temáticas:</b> {activity.tema.map(function (t, i) {
                 if (i < activity.tema.length - 1) {
                     return <>{t}, </>

@@ -32,12 +32,14 @@
   .afinidadTest{
     font-size:12px;
     margin:5px;
+    margin-left:15px;
     padding:0;
+    margin-bottom:10px;
   }
 
   .leyendaGrafica{
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     text-align:left;
     margin:auto;
     margin-top:20px;
@@ -54,14 +56,16 @@
   .circulo{
     width:15px;
     height:15px;
+    margin-top:8px;
+    margin-bottom:2px;
   }
 
-  .leyendaPunto{
+  .leyendaPuntos{
     display:flex;
-    flex-direction:row;
-    justify-content:space-between;
+    flex-direction:column;
+    justify-content:start;
     align-items:center;
+    
   }
-
 
     }

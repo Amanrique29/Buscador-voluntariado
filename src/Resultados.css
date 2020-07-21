@@ -6,6 +6,7 @@
   
   body {
     font-family: 'Inter', sans-serif;
+    text-align:left;
   }
 
   @media (max-width: 500px) {
@@ -17,16 +18,17 @@
         font-weight:300;
     }
     .resultadoActividades{
+      color:#0F4C81;
       margin-top:5%;
       margin-left:5%;
       margin-right:5%;
-      border: 1px rgb(255, 255, 255);
-      padding:15px;
+      padding:12%;
       border-radius: 30px 30px 30px 30px;
       -moz-border-radius: 30px 30px 30px 30px;
       -webkit-border-radius: 30px 30px 30px 30px;
       box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 6px 6px 10px 0 rgba(0, 0, 0, 0.2);
-      text-align:justify;
+      border:1px;
+      background-color:white;
     }
 
     .descripcionBoton{
@@ -39,12 +41,26 @@
     .botonesAtrasSiguiente{
       display:flex;
       flex-direction:row;
-      justify-content:space-between;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .botonPasarPagina{
+      width:100px;
     }
 
     .paginaActual{
       font-size:13px;
       margin-bottom: 10px;
+      text-align:center;
+    }
+
+    h3{
+      font-weight: bold;
+    }
+
+    #loading{
+      display:flex;
     }
 
     }
