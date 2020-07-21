@@ -7,7 +7,7 @@ import Mapa from './Mapa.js';
 function Test() {
 
     let mapaJSX = <main>
-        <h3>Elige tu área geográfica</h3>
+        <h3 className="titularPagina">Elige tu área geográfica</h3>
         {/* <img className="test-img" src="spain.jpg" alt=""></img> */}
         <div className="provincias">
             <Mapa siguiente={siguiente}/>
@@ -18,7 +18,7 @@ function Test() {
     let provincias = [];
 
     let slidersJSX = <main>
-        <h3>Define tus preferencias</h3>
+        <h3 className="titularPagina">Define tus preferencias</h3>
         <Slider provincias={provincias} />
 
         <Link to="/resultados" className="botonContinuar">Resultados</Link>

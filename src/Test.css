@@ -9,10 +9,7 @@
   }
 
   @media (max-width: 500px) {
-    body {
-        padding-top: 40px;
-      }
-
+  
     h3{
         font-weight:100;
       } 
@@ -25,7 +22,7 @@
     /* Formato Sliders  */
     
     .fraseSlider{
-      margin-bottom:10px;
+      margin-bottom:30px;
     }
 
     .stepsSlider{
@@ -39,6 +36,7 @@
 .sliderContainer {
     width: 70%;
     margin-top: 40px;
+    margin-bottom:10px;
   }
 
   .slider-container {
@@ -79,10 +77,10 @@ overflow: hidden;
     opacity: 1;
   }
   
- .slider-container .sliderPrueba::-webkit-slider-thumb ::-moz-range-thumb {
+ .slider-container .sliderPrueba::-webkit-slider-thumb{
     -webkit-appearance: none;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background-color: rgb(15,76,129);
     background-color: rgb(228, 192, 76);
     border-top-left-radius: 50%;
@@ -101,11 +99,11 @@ overflow: hidden;
  .slider-container .sliderPrueba::-webkit-slider-thumb:hover {
     border-bottom-left-radius: 0;
     transform: rotate(-45deg) translate(75%, -75%);
-    box-shadow: 0 0 0 10px rgb(255, 255, 255)
+    box-shadow: 0 0 0 7px rgb(255, 255, 255)
   }
 
   .slider-container .sliderPrueba:active::-webkit-slider-thumb{
-    box-shadow: 0 0 0 10px rgb(131, 60, 60)
+    box-shadow: 0 0 0 7px rgb(131, 60, 60)
   }
 
   img.logo-ods {
@@ -135,6 +133,11 @@ overflow: hidden;
   .botonPasarPagina:hover{
     background:#c4d4e9;
     cursor:pointer;
+  }
+
+  .nivel{
+    font-size:12px;
+    font-weight:600;
   }
 
 

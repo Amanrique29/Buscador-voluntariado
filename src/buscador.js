@@ -9,10 +9,11 @@ function Buscador() {
     let [texto, setTexto] = useState('');
     let [resultados, setResultados] = useState('');
     let [filtrar, setFiltrar] = useState(false);
-    let [tematicasJSX, setTematicasJSX] = useState('');
     let [valorInput, setValorInput] = useState('');
     let [temaSelect, setTemaSelect] = useState([]);
     let [provincias, setProvincias] = useState([]);
+    let [tematicas, setTematicas] = useState([]);
+
     // let [busquedaRealizada, setBusquedaRealizada] = useState(false);
     let [cargando, setCargando] = useState(false)
 
@@ -20,6 +21,23 @@ function Buscador() {
 
     // ESTADO PARA PAGINACION
     let [oportunidadesAMostrar, setOportunidadesAMostrar] = useState([]);
+
+    useEffect(function () {
+        fetch('cargarProvincias')
+            .then(function (respuesta) {
+                return respuesta.json()
+            }).then(function (datos) {
+                setProvincias(datos);
+
+            });
+
+        fetch('cargarTematicas')
+            .then(function (respuesta) {
+                return respuesta.json()
+            }).then(function (datos) {
+                setTematicas(datos);
+            });
+    }, []);
 
     useEffect(function () {
         let sinFiltros = {
@@ -42,15 +60,13 @@ function Buscador() {
             setCargando(false)
         })
 
-    }, [])
+    }, []);
+
     // let temaSelect=[];
     let [provinciaSelect, setProvinciaSelect] = useState("");
 
     //ESTADO PARA PAGINACION
     let [numPagina, setNumPagina] = useState(0);
-
-
-
 
     function search() {
 
@@ -106,34 +122,48 @@ function Buscador() {
         }
     })
 
+
+    let [desplegado, setDesplegado] = useState(false);
+    let filters = null;
+
+    if (desplegado) {
+        let tematicasJSX = tematicas.map(function (tema) {
+            return (
+                <>
+                    <input onChange={selectTema} defaultChecked={false} type="checkbox" id={tema.nombre} value={tema.nombre} className="filtro-avanzado" />
+                    <label htmlFor={tema.nombre}>{tema.nombre}</label>
+                </>
+            )
+        });
+
+        filters = (
+            <>
+                <div className="checkboxes">{tematicasJSX}</div>
+
+                <select className="desplegables" name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
+                    <option value="Seleccione una provincia">Elige una provincia</option>
+                    {
+                        provincias.map(function (provincia) {
+                            return (
+                                <>
+                                    <option value={provincia}>{provincia}</option>
+                                </>
+
+                            )
+                        })
+                    }
+                </select>
+            </>
+        )
+
+
+    } else {
+        filters = null
+    }
+
     function MostrarFiltros() {
-
-        fetch('cargarTematicas')
-            .then(function (respuesta) {
-                return respuesta.json()
-            }).then(function (datos) {
-
-                setTematicasJSX(datos.map(function (tema) {
-                    return (
-                        <>
-                            <input onChange={selectTema} defaultChecked={false} type="checkbox" id={tema.nombre} value={tema.nombre} className="filtro-avanzado" />
-                            <label htmlFor={tema.nombre}>{tema.nombre}</label>
-                        </>
-
-                    )
-                }))
-
-            });
-
-        fetch('cargarProvincias')
-            .then(function (respuesta) {
-                return respuesta.json()
-            }).then(function (datos) {
-                setProvincias(datos);
-                setFiltrar(true);
-            })
-
-    };
+        setDesplegado(!desplegado);
+    }
 
 
     function selectValor(event) {
@@ -214,32 +244,16 @@ function Buscador() {
             <div className="inputyBoton">
                 <input type="text" placeholder="  Teclea lo que quieras" id="buscar" value={valorInput} onChange={selectValor}></input>
                 <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
-
             </div>
 
             <div>
-                <div className="checkboxes">
+                {/* <div className="checkboxes">
                     {tematicasJSX}
-                </div>
-                {filtrar
-                    ?
-                    <select className="desplegables" name="provincias" id="provincias" value={provinciaSelect} onChange={selectProvincia}>
-                        <option value="Seleccione una provincia">Elige una provincia</option>
-                        {
+                </div> */}
+                <div>{filters}</div>
 
-                            provincias.map(function (provincia) {
-                                return (
-                                    <>
-                                        <option value={provincia}>{provincia}</option>
-                                    </>
 
-                                )
-                            })
 
-                        }
-                    </select>
-                    :
-                    null}
             </div>
             <div className="boton-busqueda">
                 <button id="botonBusq" onClick={search}>Buscar</button>
@@ -304,9 +318,9 @@ function Buscador() {
                         </div>
 
                 }</div> */}
-    
+
         </main>
-        
+
     )
 };
 

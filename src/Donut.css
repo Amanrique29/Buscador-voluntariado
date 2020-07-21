@@ -10,9 +10,7 @@
   }
 
   @media (max-width: 500px) {
-    body {
-        padding-top: 80px;
-      }
+   
     .cajaDonut{
        margin-top:40px;
        display:flex;

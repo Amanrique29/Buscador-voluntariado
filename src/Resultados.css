@@ -10,10 +10,7 @@
   }
 
   @media (max-width: 500px) {
-    body {
-        padding-top: 80px;
-      }
-      
+  
     p{
         margin-top:10px;
         font-weight:300;

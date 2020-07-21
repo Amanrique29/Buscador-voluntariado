@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
+import { BrowserRouter, Route, Link, useParams, useHistory } from 'react-router-dom';
 import './Resultados.css';
 import Chart from 'chart.js';
 import Grafica from './Grafica';
@@ -7,6 +7,7 @@ import DescripcionBuscador from './DescripcionBuscador.js';
 
 function Resultados() {
 
+    let history=useHistory();
 
     let listadoAfinidades = JSON.parse(localStorage.getItem('afinidades'));
 
@@ -15,7 +16,9 @@ function Resultados() {
 
     let [actividadesElegidas, setActividadesElegidas] = useState([]);
     let [numPagina, setNumPagina] = useState(0);
-    let [cargando, setCargando] = useState(false)
+    let [cargando, setCargando] = useState(false);
+    let [tematicasElegidasNombre, setTematicasElegidasNombre]=useState([]);
+    let [tematicasElegidasLogo, setTematicasElegidasLogo]=useState([]);
 
     useEffect(function () {
 
@@ -54,6 +57,56 @@ function Resultados() {
 
     }, [])
 
+    let tematicasNombreNew=[];
+    let tematicasLogoNew=[];
+
+    for (let a=0; a<actividadesElegidas.length; a++){
+        if (tematicasElegidasNombre.length === 0 && tematicasElegidasLogo.length === 0) {
+            tematicasNombreNew=[...tematicasElegidasNombre,actividadesElegidas[a].tema[0]]
+            setTematicasElegidasNombre(tematicasNombreNew);
+            tematicasLogoNew=[...tematicasElegidasLogo,actividadesElegidas[a].logotema[0]]
+            setTematicasElegidasLogo(tematicasLogoNew);
+
+        }else{
+            let tematicaExiste = false;
+            for(let b=0; b<tematicasElegidasNombre.length;b++){
+                if(actividadesElegidas[a].tema[0]===tematicasElegidasNombre[b]&& actividadesElegidas[a].logotema[0].alt===tematicasElegidasLogo[b].alt){
+                    tematicaExiste=true;
+                } 
+            }
+            if(tematicaExiste===false){
+                tematicasNombreNew=[...tematicasElegidasNombre,actividadesElegidas[a].tema[0]]
+                setTematicasElegidasNombre(tematicasNombreNew);
+                tematicasLogoNew=[...tematicasElegidasLogo,actividadesElegidas[a].logotema[0]]
+                setTematicasElegidasLogo(tematicasLogoNew);
+            }
+        }
+    }
+
+    function irABuscador(){
+        history.push("/buscador")
+    }
+
+    console.log(tematicasElegidasNombre);
+    console.log(tematicasElegidasLogo);
+
+
+    const tematicasLogosJSX= tematicasElegidasLogo.map(function(logo){
+        return(
+            <>
+                <img src={logo.url} className="logo-ods" />
+            </>
+        )
+    })
+
+    const tematicasNombresJSX= tematicasElegidasNombre.map(function(nombre,i){
+        if (i < tematicasElegidasNombre.length - 1) {
+            return <>{nombre}, </>
+        }
+        return <>{nombre}</>
+    })
+
+
     const actividadesElegidasJSX = actividadesElegidas.map(function (activity, indice) {
 
         console.log(activity)
@@ -64,6 +117,7 @@ function Resultados() {
         } else {
             if (indice >= numPagina * 6 && indice < (numPagina * 6) + 6) {
                 return (
+
                     <DescripcionBuscador activity={activity} />
                 );
             }
@@ -87,10 +141,14 @@ function Resultados() {
         numTotalPaginas = Math.floor((actividadesElegidas.length / 6 + 1))
     }
 
-    const provinciasJSX = listadoProvincias.map(function (provincia) {
-        return (
-            <p>Ofertas en la provincia de {provincia}</p>
-        )
+
+
+    const provinciasJSX = listadoProvincias.map(function (provincia, i) {
+
+        if (i < listadoProvincias.length - 1) {
+            return <>{provincia}, </>
+        }
+        return <>{provincia}</>
     });
 
     return (
@@ -98,7 +156,22 @@ function Resultados() {
             <h3 className="titularPagina">Resultados del test</h3>
             <Grafica />
 
+            <div>
+                <p>En función de tus preferencias, creemos que puedes tener afinidad con las siguientes temáticas:</p>
+            </div>
+            <div>
+                {tematicasNombresJSX}
+            </div>
+            <div>
+                {tematicasLogosJSX}
+            </div>
+    
+            <div>
+                <p>Si no te convencen las sugerencias, prueba nuestro buscador convencional</p>
+                <button onClick={irABuscador}>Buscador</button>
+                </div>
             <>
+                <p>Ofertas en la provincia de </p>
                 {provinciasJSX}
             </>
 

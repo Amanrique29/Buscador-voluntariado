@@ -8,7 +8,7 @@
     font-family: 'Inter', sans-serif;
   }
 
- 
+
   .fijar{
     position: fixed; 
     width: 100%; 
@@ -53,11 +53,12 @@
     width: 100%; 
 	  left: 0;
     top: 0;
-    background-color: white;
+    background-color:#0F4C81; 
     /* Z-index nos permite superponer elementos */
     z-index: 3; 
   }
   .header{
+    color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,7 +71,6 @@
   .pestanya:hover{
     color:#2d567a;
   }
-
   .logo{
     width: 12%;
     margin:2%;
@@ -78,6 +78,6 @@
   a{
     padding-right: 14px;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
   }
 }

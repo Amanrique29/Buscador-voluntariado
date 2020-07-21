@@ -39,6 +39,11 @@ function SliderDibujo(props) {
                     <p>4</p>
                     <p>5</p>
                 </div>
+                <div className="stepsSlider">
+                    <p className="nivel">POCO</p>
+                    <p className="nivel">MUCHO</p>
+                    
+                </div>
                 {/* <p>Puntuación: {valor}</p> */}
             </div>
         </>

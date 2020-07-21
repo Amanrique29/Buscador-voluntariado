@@ -3,6 +3,14 @@
   margin:0;
 }
 
+textarea, select, input, button { 
+  outline: none;
+}
+:focus { 
+  outline-color: transparent; 
+  outline-style: none;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
 
 body {
@@ -35,3 +43,4 @@ h1 {
 @-webkit-keyframes spin {
   to { -webkit-transform: rotate(360deg); }
 }
+
