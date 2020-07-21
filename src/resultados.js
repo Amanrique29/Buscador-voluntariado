@@ -95,7 +95,7 @@ function Resultados() {
 
     return (
         <main>
-            <h3>Resultados del test</h3>
+            <h3 className="titularPagina">Resultados del test</h3>
             <Grafica />
 
             <>
@@ -115,14 +115,14 @@ function Resultados() {
                 }
             </div>
             <div className="botonesAtrasSiguiente">
-            {
+                {
 
-                numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
-            }
-            {
-                numPagina * 6 + 6 < actividadesElegidas.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
+                    numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
+                }
+                {
+                    numPagina * 6 + 6 < actividadesElegidas.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
 
-            }
+                }
             </div>
             {
                 numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>

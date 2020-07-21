@@ -210,11 +210,12 @@ function Buscador() {
     }
 
     return (
-        <> <div className="inputyBoton">
-            <input type="text" placeholder="  Teclea lo que quieras" id="buscar" value={valorInput} onChange={selectValor}></input>
-            <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
+        <main>
+            <div className="inputyBoton">
+                <input type="text" placeholder="  Teclea lo que quieras" id="buscar" value={valorInput} onChange={selectValor}></input>
+                <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
 
-        </div>
+            </div>
 
             <div>
                 <div className="checkboxes">
@@ -241,40 +242,71 @@ function Buscador() {
                     null}
             </div>
             <div className="boton-busqueda">
-                <button id="botonBusq"onClick={search}>Buscar</button>
+                <button id="botonBusq" onClick={search}>Buscar</button>
             </div>
             <p>{resultados}</p>
             {texto}
             {/* <p>{temaSelect.map(el => <>{el} </>)}</p> */}
+
             <div>
-                <div>{
-                    cargando
+                {cargando
+                    ?
+                    <div id="loading"></div>
+                    :
+                    !cargando && oportunidadesAMostrar.length === 0
                         ?
-                        <div id="loading"></div> :
+                        <p>No hay resultados que mostrar</p>
+                        :
+                        <> <p className="numResultados">Hay un total de {oportunidadesAMostrar.length} resultado(s)</p> {oportunidadesAMostrarJSX}</>
+                }
+            </div>
+
+            <div className="botonesAtrasSiguiente">
+                {
+
+                    numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
+                }
+                {
+                    numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
+
+                }
+            </div>
+            {
+                numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
+            }
+
+
+
+
+            {/* <div>
+                <div>
+                    {cargando
+                        ?
+                        <div id="loading"></div>
+                         :
 
                         <div className="contenidoFichas">
                             <p className="numResultados">Se ha obtenido un total de {oportunidadesAMostrarJSX.length} resultado(s)</p>{oportunidadesAMostrarJSX}
                             <div className="botonesAtrasSiguiente">
-                                
-                            {
 
-                                numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
-                            }
-                            {
-                                numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
+                                {
 
-                            }
+                                    numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
+                                }
+                                {
+                                    numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
+
+                                }
                             </div>
                             {
                                 numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
                             }
                         </div>
 
-                }</div>
-            </div>
-
-
-        </>
+                }</div> */}
+    
+        </main>
+        
     )
 };
 

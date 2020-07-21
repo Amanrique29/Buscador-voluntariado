@@ -31,40 +31,47 @@ function DescripcionBuscador({ activity }) {
     return (
         <div className="resultadoActividades">
             <h3><b>{activity.actividad.titulo}</b></h3>
-            <p><b>Organización: {activity.actividad.ong}</b></p>
 
-            <p><b>{activity.actividad.webOficial !== null
-                ?
-                <a href={activity.actividad.webOficial}>Ir al sitio web </a>
-                :
-                null}</b></p>
 
-            <p><b>Provincia: {activity.actividad.provincia}</b></p>
-            <p><b>Temáticas:</b> {activity.tema.map(function (t, i) {
+            <p className="organizacion"><b>Organización: {activity.actividad.ong}</b></p>
+            <div className="contenedorIrAWeb">
+                <p className="contenidoTarjeta"><b>{activity.actividad.webOficial !== null
+                    ?
+                    <a className="irASitioWeb" href={activity.actividad.webOficial}> Ir al sitio web </a>
+                    :
+                    null}</b></p>
+
+            </div>
+
+            <p className="contenidoTarjeta"><b>Provincia: {activity.actividad.provincia}</b></p>
+            <p className="tematicas"><b>Temáticas:</b> {activity.tema.map(function (t, i) {
                 if (i < activity.tema.length - 1) {
                     return <>{t}, </>
                 }
                 return <>{t}</>
             })}</p>
-             <div>{activity.logotema.map(function (logo) {
-             
-                return <><img src={logo.url} className="logo-ods"/></>
+
+            <div className="dibujosLogos">{activity.logotema.map(function (logo) {
+
+                return <><img src={logo.url} className="logo-ods" /></>
             })}</div>
+
+
             <div>
-                <div className="descripcionBoton">
-                    <p><b>Descripción</b></p>
+                <div>
+                    <p className="titularNegrita"><b>Descripción</b></p>
                 </div>
-                <p>{description}</p>
+                <p className="contenidoTarjeta">{description}</p>
                 {activity.actividad.fechaInicio !== ''
                     ?
-                    <p>Fecha inicio: {activity.actividad.fechaInicio} </p>
+                    <p className="contenidoTarjeta">Fecha inicio: {activity.actividad.fechaInicio} </p>
                     :
-                    <p>Fecha inicio: N.H.</p>}
+                    <p className="contenidoTarjeta">Fecha inicio: N.H.</p>}
                 {activity.actividad.fechaFin !== ''
                     ?
-                    <p>Fecha fin: {activity.actividad.fechaFin} </p>
+                    <p className="contenidoTarjeta">Fecha fin: {activity.actividad.fechaFin} </p>
                     :
-                    <p>Fecha fin: N.H.</p>}
+                    <p className="contenidoTarjeta">Fecha fin: N.H.</p>}
             </div>
 
             <div>

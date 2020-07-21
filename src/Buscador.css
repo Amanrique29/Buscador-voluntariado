@@ -42,11 +42,12 @@
     
     .inputyBoton{
       display: flex;
-      justify-content: space-evenly;
+      flex-direction:row;
+      justify-content: space-between;
       margin-bottom: 3%;
     }
     input#buscar{
-      width: 39%;
+      width: 195px;
       -webkit-appearance: none;
       background-color:white;
       border:none;
@@ -54,11 +55,11 @@
       border-radius:15px;
       color:#0F4C81;
       font-weight:200;
-
     }
+
     .ancho{
       cursor:pointer;
-      width: 39%;
+      width: 195px;
       -webkit-appearance: none;
       background-color:#F4DBB3;
       border:none;
@@ -66,6 +67,7 @@
       border-radius:15px;
       padding:5px;
       font-weight:200;
+      margin-left:10%;
     }
 
     .desplegables{
@@ -153,19 +155,56 @@
       text-align:center;
     }
 
-
-    .contenidoFichas{
+    /* .contenidoFichas{
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
-    }
+    } */
 
     .botonPasarPagina{
       width:100px;
     }
 
+    .contenedorIrAWeb{
+      display:flex;
+      justify-content:left;
+      padding-bottom:15px;
+      padding-top:10px;
+    }
 
+    .irASitioWeb{
+      font-weight:bold;
+      text-transform: uppercase;
+      color:#0F4C81;
+    }
+
+    .irASitioWeb:hover{
+      font-weight:bold;
+    }
+
+    .contenidoTarjeta{
+      margin-bottom:-5px;
+    }
+
+    .titularNegrita{
+      font-weight:600;
+      margin-bottom:-5px;
+    }
+
+    .dibujosLogos{
+      margin-top:5px;
+      margin-bottom:10px;
+
+    }
+    .tematicas{
+      margin-top:10px;
+    }
+
+    .organizacion{
+      font-weight:500;
+      margin-top:-10px;
+    }
    
   }
     
