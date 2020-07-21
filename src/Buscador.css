@@ -123,11 +123,6 @@
       justify-content: center;
       margin-top: 5%;
     }
-
-     /* img.logo-ods {
-      width: 20px;
-      height: 20px;
-    }  */
   
     .botonLeerMas{
      
@@ -176,7 +171,7 @@
     .irASitioWeb{
       font-weight:bold;
       text-transform: uppercase;
-      color:#0F4C81;
+      color:#FFBB00;
     }
 
     .irASitioWeb:hover{

@@ -18,6 +18,32 @@
     stroke:#0F4C81;
     cursor:pointer;
   }
+  .descripcionBPaso1{
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    margin-left:230px;
+    margin-top:20px;
+    margin-bottom:50px;
+    font-weight:200;
+  }
+
+  .parrafo{
+    width:500px;
+  }
+
+  .plano{
+    width:850px;
+  }
+
+  .centrar{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    margin-top:-140px;
+  }
+
+
 
   @media (max-width: 500px) {
     body {
@@ -41,7 +67,8 @@
       flex-direction:column;
       align-items:center;
       margin-left:40px;
-      margin-top:-160px;
+      margin-top:-30px;
+      margin-bottom:50px;
     }
 
     .parrafo{
@@ -53,6 +80,15 @@
       flex-direction:row;
       justify-content:center;
       margin-top:-80px;
+    }
+
+    .plano{
+      width:100%;
+    }
+
+    .planoYFrase{
+      display:flex;
+      flex-direction:column;
     }
 
   }

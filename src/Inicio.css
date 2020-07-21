@@ -4,9 +4,13 @@
   
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
   
+ 
   body {
     font-family: 'Inter', sans-serif;
+
   }
+  
+
 
   .botonContinuar {
     /* all: unset;  */
@@ -58,13 +62,6 @@
       display:flex;
       flex-direction:column;
       align-items: center;
-  }
-
-
-  .inicioImagen{
-    margin-top:60px;
-    width:380px;
-    position:relative;
   }
 
   @media (max-width: 500px) {

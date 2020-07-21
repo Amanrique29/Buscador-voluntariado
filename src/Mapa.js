@@ -193,9 +193,15 @@ function Mapa(props) {
        
 
     return (
-        <>
-            {espanyaJSX}
-        </>
+        <div className="planoYFrase">
+            <div className="descripcionBPaso1">
+                <p className="parrafo">Indícanos en qué lugares te interesa colaborar.</p>
+                <p className="parrafo">Puedes elegir todas las provincias que quieras. Simplemente, colócate encima del mapa y haz click sobre ella.</p>
+            </div>
+            <div className="plano">
+                {espanyaJSX}
+            </div>
+        </div>
     )
 
 }

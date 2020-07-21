@@ -9,7 +9,7 @@ let arrayAfinidades = [
   },
   {
     nombre: "sociabilidad",
-    frase: "Tengo facilidad para tratar con las personas"
+    frase: "Tengo facilidad para tratar con personas que no conozco"
   },
   {
     nombre: "pensamiento creativo",
@@ -25,7 +25,7 @@ let arrayAfinidades = [
   },
   {
     nombre: "habilidades digitales",
-    frase: "Me manejo bien con herramientas digitales"
+    frase: "Me manejo bien con herramientas digitales y redes sociales"
   },
   {
     nombre: "capacidad de liderazgo",
@@ -75,9 +75,9 @@ function Slider() {
   })
 
   return (
-    <>
+    <div className="allSliders">
       {sliderJSX}
-    </>
+    </div>
 
   );
 

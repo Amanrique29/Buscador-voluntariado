@@ -7,7 +7,7 @@ import DescripcionBuscador from './DescripcionBuscador.js';
 
 function Resultados() {
 
-    let history=useHistory();
+    let history = useHistory();
 
     let listadoAfinidades = JSON.parse(localStorage.getItem('afinidades'));
 
@@ -17,8 +17,8 @@ function Resultados() {
     let [actividadesElegidas, setActividadesElegidas] = useState([]);
     let [numPagina, setNumPagina] = useState(0);
     let [cargando, setCargando] = useState(false);
-    let [tematicasElegidasNombre, setTematicasElegidasNombre]=useState([]);
-    let [tematicasElegidasLogo, setTematicasElegidasLogo]=useState([]);
+    let [tematicasElegidasNombre, setTematicasElegidasNombre] = useState([]);
+    let [tematicasElegidasLogo, setTematicasElegidasLogo] = useState([]);
 
     useEffect(function () {
 
@@ -57,33 +57,33 @@ function Resultados() {
 
     }, [])
 
-    let tematicasNombreNew=[];
-    let tematicasLogoNew=[];
+    let tematicasNombreNew = [];
+    let tematicasLogoNew = [];
 
-    for (let a=0; a<actividadesElegidas.length; a++){
+    for (let a = 0; a < actividadesElegidas.length; a++) {
         if (tematicasElegidasNombre.length === 0 && tematicasElegidasLogo.length === 0) {
-            tematicasNombreNew=[...tematicasElegidasNombre,actividadesElegidas[a].tema[0]]
+            tematicasNombreNew = [...tematicasElegidasNombre, actividadesElegidas[a].tema[0]]
             setTematicasElegidasNombre(tematicasNombreNew);
-            tematicasLogoNew=[...tematicasElegidasLogo,actividadesElegidas[a].logotema[0]]
+            tematicasLogoNew = [...tematicasElegidasLogo, actividadesElegidas[a].logotema[0]]
             setTematicasElegidasLogo(tematicasLogoNew);
 
-        }else{
+        } else {
             let tematicaExiste = false;
-            for(let b=0; b<tematicasElegidasNombre.length;b++){
-                if(actividadesElegidas[a].tema[0]===tematicasElegidasNombre[b]&& actividadesElegidas[a].logotema[0].alt===tematicasElegidasLogo[b].alt){
-                    tematicaExiste=true;
-                } 
+            for (let b = 0; b < tematicasElegidasNombre.length; b++) {
+                if (actividadesElegidas[a].tema[0] === tematicasElegidasNombre[b] && actividadesElegidas[a].logotema[0].alt === tematicasElegidasLogo[b].alt) {
+                    tematicaExiste = true;
+                }
             }
-            if(tematicaExiste===false){
-                tematicasNombreNew=[...tematicasElegidasNombre,actividadesElegidas[a].tema[0]]
+            if (tematicaExiste === false) {
+                tematicasNombreNew = [...tematicasElegidasNombre, actividadesElegidas[a].tema[0]]
                 setTematicasElegidasNombre(tematicasNombreNew);
-                tematicasLogoNew=[...tematicasElegidasLogo,actividadesElegidas[a].logotema[0]]
+                tematicasLogoNew = [...tematicasElegidasLogo, actividadesElegidas[a].logotema[0]]
                 setTematicasElegidasLogo(tematicasLogoNew);
             }
         }
     }
 
-    function irABuscador(){
+    function irABuscador() {
         history.push("/buscador")
     }
 
@@ -91,15 +91,15 @@ function Resultados() {
     console.log(tematicasElegidasLogo);
 
 
-    const tematicasLogosJSX= tematicasElegidasLogo.map(function(logo){
-        return(
+    const tematicasLogosJSX = tematicasElegidasLogo.map(function (logo) {
+        return (
             <>
-                <img src={logo.url} className="logo-ods" />
+                <img src={logo.url} className="logo-ods-round" />
             </>
         )
     })
 
-    const tematicasNombresJSX= tematicasElegidasNombre.map(function(nombre,i){
+    const tematicasNombresJSX = tematicasElegidasNombre.map(function (nombre, i) {
         if (i < tematicasElegidasNombre.length - 1) {
             return <>{nombre}, </>
         }
@@ -156,7 +156,7 @@ function Resultados() {
             <h3 className="titularPagina">Resultados del test</h3>
             <Grafica />
 
-            <div>
+            <div className="textos">
                 <p>En función de tus preferencias, creemos que puedes tener afinidad con las siguientes temáticas:</p>
             </div>
             <div>
@@ -165,15 +165,17 @@ function Resultados() {
             <div>
                 {tematicasLogosJSX}
             </div>
-    
+
+            <div className="textos">
+                <p>Si no te convencen las sugerencias, prueba nuestro buscador convencional.</p>
+            </div>
             <div>
-                <p>Si no te convencen las sugerencias, prueba nuestro buscador convencional</p>
-                <button onClick={irABuscador}>Buscador</button>
-                </div>
-            <>
-                <p>Ofertas en la provincia de </p>
+                <button class="botonLeerMas" onClick={irABuscador}>Ir a buscador</button>
+            </div>
+            <div className="ofertasProvincia">
+                <p>Ofertas en la(s) provincia(s) de: </p>
                 {provinciasJSX}
-            </>
+            </div>
 
             <div>
                 {cargando
