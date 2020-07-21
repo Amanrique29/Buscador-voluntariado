@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
+import {useCookies} from 'react-cookie'
 import './Buscador.css';
 import './DescripcionBuscador.js'
 import DescripcionBuscador from './DescripcionBuscador.js';
