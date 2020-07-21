@@ -11,7 +11,7 @@ function Inicio() {
     }
 
     let testJSX = <main>
-        <img className="inicioImagen"/>
+      
         <div className="test">
             <h1>Tu buscador de voluntariado</h1>
             <button className="botonContinuar" onClick={irATest}>Continuar</button>

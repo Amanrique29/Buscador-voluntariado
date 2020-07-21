@@ -7,7 +7,47 @@
   body {
     font-family: 'Inter', sans-serif;
   }
-  @media (max-width: 500px) {
+
+ 
+  .fijar{
+    position: fixed; 
+    width: 100%; 
+	  left: 0;
+    top: 0;
+    background-color:#0F4C81; 
+    /* Z-index nos permite superponer elementos */
+    z-index: 3; 
+  }
+  .header{
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 18px;
+    padding-right: 18px;
+  }
+  .navegacion{
+    display: flex;
+    font-weight:200;
+    font-size: 16px;
+  }
+  .pestanya:hover{
+    color:#2d567a;
+  }
+
+  .logo{
+    width: 7%;
+    margin:1%;
+    padding-left: 10px;
+  }
+  a{
+    padding-right: 14px;
+    text-decoration: none;
+    color: #fff;
+  }
+
+
+@media (max-width: 500px) {
   .fijar{
     position: fixed; 
     width: 100%; 
@@ -15,7 +55,7 @@
     top: 0;
     background-color: white;
     /* Z-index nos permite superponer elementos */
-    z-index: 1; 
+    z-index: 3; 
   }
   .header{
     display: flex;
