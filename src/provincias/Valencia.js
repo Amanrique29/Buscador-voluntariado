@@ -5,7 +5,7 @@ function Valencia({name, seleccionarProvincia}) {
     let [seleccionado, setSeleccionado]= useState(false);
 
     let style = {
-        fill: "#white"
+        fill: "white"
     };
     if(seleccionado) {
         style.fill = "red";
