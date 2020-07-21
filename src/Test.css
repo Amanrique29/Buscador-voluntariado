@@ -83,6 +83,7 @@ overflow: hidden;
     -webkit-appearance: none;
     width: 30px;
     height: 30px;
+    background-color: rgb(15,76,129);
     background-color: rgb(228, 192, 76);
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
@@ -108,9 +109,10 @@ overflow: hidden;
   }
 
   img.logo-ods {
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     margin-right:10px;
+    margin-top:15px;
   }
   
   .botonPasarPagina{
@@ -134,5 +136,6 @@ overflow: hidden;
     background:#c4d4e9;
     cursor:pointer;
   }
+
 
     }

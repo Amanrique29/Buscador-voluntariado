@@ -18,7 +18,6 @@ let arrayAfinidades = [
   {
     nombre: "capacidad de trabajar bajo presión",
     frase: "Puedo mantener la calma en situaciones bajo presión o en una emergencia"
-
   },
   {
     nombre: "empatía",
@@ -29,7 +28,7 @@ let arrayAfinidades = [
     frase: "Me manejo bien con herramientas digitales"
   },
   {
-    nombre: "capacidad de coordinación",
+    nombre: "capacidad de liderazgo",
     frase: "Busco maximizar la eficiencia de los recursos y el tiempo de los miembros del equipo"
   },
   {

@@ -11,12 +11,21 @@
   @media (max-width: 500px) {
     label {
     cursor: pointer;
-    padding: 2px;
-    border: solid;
+    padding-top:4px;
+    padding-bottom:4px;
+    border: 1px dashed;
     width: 175px;
     margin-bottom: 2%;
     text-align: center;
+    border-radius:15px;
+    font-weight:300;
     }
+
+    label:hover{
+      border:1px solid #F4DBB3;
+      color: #F4DBB3;
+    }
+
     input.filtro-avanzado {
         position: absolute;
         left: -9999px;
@@ -27,38 +36,104 @@
         flex-wrap: wrap;
     }
     input:checked + label {
-        background-color: blue;
+        background-color: white;
+        color:#0F4C81;
     }
+    
     .inputyBoton{
       display: flex;
-      justify-content: space-evenly;
+      flex-direction:row;
+      justify-content: space-between;
       margin-bottom: 3%;
     }
     input#buscar{
-      width: 41%;
+      width: 195px;
+      -webkit-appearance: none;
+      background-color:white;
+      border:none;
+      padding:5px;
+      border-radius:15px;
+      color:#0F4C81;
+      font-weight:200;
     }
+
     .ancho{
-      width: 41%;
+      cursor:pointer;
+      width: 195px;
+      -webkit-appearance: none;
+      background-color:#F4DBB3;
+      border:none;
+      padding:5px;
+      border-radius:15px;
+      padding:5px;
+      font-weight:200;
+      margin-left:10%;
     }
+
     .desplegables{
-      margin-left: 6%;
+      margin-left: 30%;
       width: 41%;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    
+      display: inline-block;
+      cursor: pointer;
+      padding: 2px;
+      outline: 0; 
+      background-color:white;
+      font-size: 1em;
+      color: black;
+      font-family: 'Inter', sans-serif;
+      font-weight:200;
+      border:3px solid  #F4DBB3;
+      border-radius: 15px;
+      position: relative;
+      transition: all 0.25s ease;
+      text-align:center;
     }
+
+    .desplegables:hover{
+      background:#F4DBB3;
+      }
+
+    #botonBusq{
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    
+      display: inline-block;
+      cursor: pointer;
+      padding: 10px 10px ;
+      outline: 0; 
+      background-color:#F4DBB3;
+      font-size: 1em;
+      color: black;
+      font-family: 'Inter', sans-serif;
+      font-weight:200;
+      border:1px solid rgba(0,0,0,0.2);
+      border-radius: 15px;
+      position: relative;
+      transition: all 0.25s ease;
+      text-align:center;
+    }
+
     .boton-busqueda{
       display: flex;
       justify-content: center;
       margin-top: 5%;
     }
 
-    img.logo-ods {
+     /* img.logo-ods {
       width: 20px;
       height: 20px;
-    } 
+    }  */
   
     .botonLeerMas{
-      /* all: unset;  */
+     
+      color:#0F4C81;
       background-color:white;
-      border: rgb(0, 0, 0) 1px solid;
+      border:#0F4C81 1px solid;
       border-radius: 10px;
       font-family: 'Inter', sans-serif;
       font-weight:200;
@@ -75,6 +150,62 @@
       cursor:pointer;
     }
 
+    .numResultados{
+      margin-top:35px;
+      text-align:center;
+    }
+
+    /* .contenidoFichas{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+    } */
+
+    .botonPasarPagina{
+      width:100px;
+    }
+
+    .contenedorIrAWeb{
+      display:flex;
+      justify-content:left;
+      padding-bottom:15px;
+      padding-top:10px;
+    }
+
+    .irASitioWeb{
+      font-weight:bold;
+      text-transform: uppercase;
+      color:#0F4C81;
+    }
+
+    .irASitioWeb:hover{
+      font-weight:bold;
+    }
+
+    .contenidoTarjeta{
+      margin-bottom:-5px;
+    }
+
+    .titularNegrita{
+      font-weight:600;
+      margin-bottom:-5px;
+    }
+
+    .dibujosLogos{
+      margin-top:5px;
+      margin-bottom:10px;
+
+    }
+    .tematicas{
+      margin-top:10px;
+    }
+
+    .organizacion{
+      font-weight:500;
+      margin-top:-10px;
+    }
+   
   }
     
 

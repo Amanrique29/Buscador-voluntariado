@@ -9,8 +9,30 @@ function Grafica() {
 
         return (
             <>
-                <p>{nombre.nombre}</p>
+                <p className="afinidadTest">{nombre.nombre}</p>
             </>
+        )
+    })
+
+    let colores = [
+        'rgba(130, 141, 46, 0.5)',
+        'rgba(183, 78, 35, 0.5)',
+        'rgba(94, 125, 117, 0.5)',
+        'rgba(172, 135, 0, 0.5)',
+        'rgba(38, 105, 138, 0.5)',
+        'rgba(138, 117, 149, 0.5)',
+        'rgba(161, 55, 105, 0.5)',
+        'rgba(55, 146, 119, 0.5)',
+    ]
+
+    let circuloJSX = colores.map(function (color) {
+
+        return (
+            <svg version="1.1" className="circulo" x="0px" y="0px"
+	 width="229.6px" height="229.6px" viewBox="0 0 229.6 229.6"
+	>
+            <circle cx="114.8" cy="114.8" r="114.8" fill={color}/>
+            </svg>
         )
     })
 
@@ -47,7 +69,6 @@ function Grafica() {
                     'rgba(138, 117, 149, 0.5)',
                     'rgba(161, 55, 105, 0.5)',
                     'rgba(55, 146, 119, 0.5)',
-                    'rgba(58, 60, 123, 0.5)',
                 ],
                 borderColor: "white",
                 borderWidth: 2,
@@ -60,7 +81,6 @@ function Grafica() {
                     'rgba(138, 117, 149, 0.7)',
                     'rgba(161, 55, 105, 0.7)',
                     'rgba(55, 146, 119, 0.7)',
-                    'rgba(58, 60, 123, 0.7)',
                 ],
                 hoverBorderColor: "white",
                 data: newData,
@@ -78,12 +98,15 @@ function Grafica() {
     })
 
     return (
-        <>
+        <div className="graficaYLeyenda">
             <div className="cajaDonut">
                 <Doughnut className="donut" data={data} options={options} />
             </div>
-            <div class="leyendaGrafica">{afinidadesGraficaJSX}</div>
-        </>
+            <div class="leyendaGrafica">
+                <div className="leyendaPuntos">{circuloJSX}</div>
+                <div className="afinidades">{afinidadesGraficaJSX}</div>
+            </div>
+        </div>
     )
 }
 

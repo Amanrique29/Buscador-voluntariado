@@ -14,7 +14,7 @@
         padding-top: 80px;
       }
     .cajaDonut{
-        margin-top:40px;
+       margin-top:40px;
        display:flex;
        flex-direction:row; 
     }
@@ -24,7 +24,48 @@
     }
 
     canvas{
-        width: 600px !important;
-        height: 300px !important;
+        width: 500px !important;
+        height: 250px !important;
     }
+
+
+  .afinidadTest{
+    font-size:12px;
+    margin:5px;
+    margin-left:15px;
+    padding:0;
+    margin-bottom:10px;
+  }
+
+  .leyendaGrafica{
+    display:flex;
+    flex-direction:row;
+    text-align:left;
+    margin:auto;
+    margin-top:20px;
+  }
+
+  .graficaYLeyenda{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+
+  .circulo{
+    width:15px;
+    height:15px;
+    margin-top:8px;
+    margin-bottom:2px;
+  }
+
+  .leyendaPuntos{
+    display:flex;
+    flex-direction:column;
+    justify-content:start;
+    align-items:center;
+    
+  }
+
     }
