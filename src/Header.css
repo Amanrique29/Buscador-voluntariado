@@ -9,11 +9,13 @@
   }
   @media (max-width: 500px) {
   .fijar{
-    position: fixed;
+    position: fixed; 
     width: 100%; 
 	  left: 0;
     top: 0;
     background-color: white;
+    /* Z-index nos permite superponer elementos */
+    z-index: 1; 
   }
   .header{
     display: flex;

@@ -19,7 +19,7 @@
   }
 
   .provinciaDibujo:hover{
-    fill: rgb(15,76,129);
+    fill: rgb(15,76,129) !important;
     stroke: white;
     cursor:pointer;
   }

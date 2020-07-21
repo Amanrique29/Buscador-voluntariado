@@ -8,81 +8,33 @@ import { Redirect } from 'react-router-dom';
 
 
 function Mapa(props) {
-    let [madrid, setMadrid] = useState(false);
-    let [valencia, setValencia] = useState(false);
-    let [sevilla, setSevilla] = useState(false);
-
     let [arrayProvincias, setArrayProvincias] = useState([])
 
     //Meter en el local storage el array provincias
     let listadoProvinciasEnJson = JSON.stringify(arrayProvincias);
-    let arrayProvinciaSelect = []
 
     function seleccionarProvincia(name, seleccionado) {
-        if (name === 'Bizkaia') {
-            if (seleccionado) {
-                arrayProvinciaSelect.push('Bizkaia');
-                setArrayProvincias(arrayProvinciaSelect)
-                listadoProvinciasEnJson = JSON.stringify(arrayProvinciaSelect);
-                localStorage.setItem('provincias', listadoProvinciasEnJson);
-            } else {
-                for (let i = 0; i < arrayProvincias.length; i++) {
-                    if (arrayProvincias[i] === name) {
-                        arrayProvinciaSelect = arrayProvincias
-                        arrayProvinciaSelect.splice(i, 1);
-                        console.log(arrayProvinciaSelect)
-                        listadoProvinciasEnJson = JSON.stringify(arrayProvinciaSelect);
-                        localStorage.setItem('provincias', listadoProvinciasEnJson);
-                      
-                    }
-                }    setArrayProvincias(arrayProvinciaSelect)
-            }
-        }
-        else if (name === 'Madrid') {
-            if (seleccionado) {
-                arrayProvinciaSelect.push('Madrid');
-                setArrayProvincias(arrayProvinciaSelect)
-                listadoProvinciasEnJson = JSON.stringify(arrayProvinciaSelect);
-                localStorage.setItem('provincias', listadoProvinciasEnJson);
-            } else {
-                for (let i = 0; i < arrayProvincias.length; i++) {
-                    if (arrayProvincias[i] === name) {
-                        arrayProvinciaSelect = arrayProvincias
-                        arrayProvinciaSelect.splice(i, 1);
-                        console.log(arrayProvinciaSelect)
-                        listadoProvinciasEnJson = JSON.stringify(arrayProvinciaSelect);
-                        localStorage.setItem('provincias', listadoProvinciasEnJson);
+        if (seleccionado) {
+            console.log(arrayProvincias)
+            let nuevasProvincias = [...arrayProvincias, name];
+            setArrayProvincias(nuevasProvincias)
+            listadoProvinciasEnJson = JSON.stringify(nuevasProvincias);
+            localStorage.setItem('provincias', listadoProvinciasEnJson);
+        } else {
+            for (let i = 0; i < arrayProvincias.length; i++) {
+                if (arrayProvincias[i] === name) {
 
-                    }
-                } setArrayProvincias(arrayProvinciaSelect)
-            }
-        }
-        else if (name === 'Valencia') {
-            if (seleccionado) {
-                arrayProvincias.push('Valencia');
-            } else {
-                for (let i = 0; i < arrayProvincias.length; i++) {
-                    if (arrayProvincias[i] === name) {
-                        arrayProvincias.splice(i, 1);
-                    }
+                    arrayProvincias = arrayProvincias.filter(function (provincia) {
+                        return (
+                            provincia !== name
+                        )
+                    });
+                    listadoProvinciasEnJson = JSON.stringify(arrayProvincias);
+                    localStorage.setItem('provincias', listadoProvinciasEnJson);
+
                 }
-            }
+            } setArrayProvincias(arrayProvincias)
         }
-        else if (name === 'Sevilla') {
-            if (seleccionado) {
-                arrayProvincias.push('Sevilla');
-            } else {
-                for (let i = 0; i < arrayProvincias.length; i++) {
-                    if (arrayProvincias[i] === name) {
-                        arrayProvincias.splice(i, 1);
-                    }
-                }
-            }
-        }
-
-
-
-     
     }
 
     const espanyaJSX =
