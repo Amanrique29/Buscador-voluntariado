@@ -13,6 +13,7 @@
     body {
         padding-top: 80px;
       }
+      
     p{
         margin-top:10px;
         font-weight:300;
@@ -72,9 +73,9 @@
     }
 
     .titularPagina{
-      font-weight:100;
+      font-weight:bold;
       margin-top:-50px;
-      font-size:30px;
+      font-size:22px;
       margin-bottom:-20px;
     }
 

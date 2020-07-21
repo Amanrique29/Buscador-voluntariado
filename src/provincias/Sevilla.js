@@ -5,7 +5,7 @@ function Sevilla({name, seleccionarProvincia}) {
     let [seleccionado, setSeleccionado]= useState(false);
 
     let style = {
-        fill: "#d9d4ba"
+        fill: "#white"
     };
     if(seleccionado) {
         style.fill = "red";
