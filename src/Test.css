@@ -79,7 +79,7 @@ overflow: hidden;
     opacity: 1;
   }
   
- .slider-container .sliderPrueba::-webkit-slider-thumb {
+ .slider-container .sliderPrueba::-webkit-slider-thumb ::-moz-range-thumb {
     -webkit-appearance: none;
     width: 30px;
     height: 30px;
