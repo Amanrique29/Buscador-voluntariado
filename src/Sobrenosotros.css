@@ -1,11 +1,15 @@
 .doscolumnas{
     display: flex;
     justify-content: space-evenly;
+    font-size: 15px;
 }
 .columna{
-    margin: 6%;
+    margin: 0% 6% 6% 6%;
 }
 .titulos_{
-    display: flex;
-    justify-content: center;
+    font-size: 42px;
+    padding-left: 0;
+}
+.ancho-parrafo{
+    width: 512px;
 }
