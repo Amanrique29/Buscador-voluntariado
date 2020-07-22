@@ -152,7 +152,13 @@ function Resultados() {
     });
 
     return (
-        <main>
+        <main className="mainMapa">
+            <div class="blobResultados">
+                <svg viewBox="0 0 200 200" >
+                    <path  d="M65.2,-18.9C73.4,4.3,61.6,36.4,39.7,51.5C17.8,66.7,-14,65,-38.1,48.4C-62.3,31.9,-78.6,0.5,-70.9,-21.9C-63.3,-44.3,-31.6,-57.8,-1.6,-57.2C28.4,-56.7,56.9,-42.2,65.2,-18.9Z" transform="translate(100 100)" />
+                </svg>
+            </div>
+
             <h3 className="titularPagina">Resultados del test</h3>
             <Grafica />
 
@@ -186,8 +192,8 @@ function Resultados() {
                         ?
                         <p>No hay resultados que mostrar</p>
                         :
-                        <> <p className="numResultados">Hay un total de {actividadesElegidas.length} resultado(s)</p> 
-                        <div className="totalActividades">{actividadesElegidasJSX}</div>
+                        <> <p className="numResultados">Hay un total de {actividadesElegidas.length} resultado(s)</p>
+                            <div className="totalActividades">{actividadesElegidasJSX}</div>
                         </>
                 }
             </div>

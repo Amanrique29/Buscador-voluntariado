@@ -37,11 +37,12 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 5%;
+    width:70%
   
   }
   
   .sliderContainer {
-  width:40%;
+  width:34%;
   margin-top: 40px;
   margin-bottom:10px;
   padding: 10px 50px
@@ -90,7 +91,7 @@
   width: 20px;
   height: 20px;
   background-color: rgb(15,76,129);
-  background-color: rgb(228, 192, 76);
+  background-color:#FFBB00;
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
   border-bottom-left-radius: 50%;
@@ -111,7 +112,7 @@
   }
   
   .slider-container .sliderPrueba:active::-webkit-slider-thumb{
-  box-shadow: 0 0 0 7px rgb(131, 60, 60)
+  box-shadow: 0 0 0 7px rgb(35,54,88);
   }
   
   img.logo-ods {
@@ -139,7 +140,7 @@
   }
   
   .botonPasarPagina:hover{
-  background:#c4d4e9;
+  background:rgb(35,54,88);
   cursor:pointer;
   }
   
@@ -151,6 +152,32 @@
   .mainMapa{
     margin-top:160px;
   }
+
+  .blobMapa{
+    position: absolute;
+    top: 0;
+    left: 348px;
+    fill: #023F92;
+    width: 71vmax;
+    z-index: -1;
+    animation: move 10s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  @keyframes move {
+    0%   { transform: scale(1)   translate(20px, 0px); }
+    38%  { transform: scale(0.8, 1) translate(3vw, 3vh) rotate(160deg); }
+    40%  { transform: scale(0.8, 1) translate(3vw, 3vh) rotate(160deg); }
+    78%  { transform: scale(1.3) translate(6vw, 6vh) rotate(-20deg); }
+    80%  { transform: scale(1.3) translate(6vw, 6vh) rotate(-20deg); }
+    100% { transform: scale(1)   translate(20px, 0px); }
+  }
+
+
 
   @media (max-width: 500px) {
   
@@ -182,6 +209,7 @@
       flex-direction:column;
       justify-content:center;
       align-items:center;
+      width:100%;
     }
 
 .sliderContainer {
@@ -233,8 +261,8 @@ overflow: hidden;
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
-    background-color: rgb(15,76,129);
-    background-color: rgb(228, 192, 76);
+    background:rgb(35,54,88);
+    background-color:#FFBB00;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     border-bottom-left-radius: 50%;
@@ -255,7 +283,7 @@ overflow: hidden;
   }
 
   .slider-container .sliderPrueba:active::-webkit-slider-thumb{
-    box-shadow: 0 0 0 7px rgb(131, 60, 60)
+    box-shadow: 0 0 0 7px rgb(35,54,88);
   }
 
   img.logo-ods {
@@ -290,6 +318,10 @@ overflow: hidden;
   .nivel{
     font-size:12px;
     font-weight:600;
+  }
+
+  .mainMapa{
+    margin-top:20px;
   }
 
 

@@ -24,7 +24,7 @@ function Inicio() {
     </main>;
 
     return (
-        <>
+        <div  style={{overflow: 'hidden', maxWidth: '100%', position: 'relative', minHeight: '95vh'}}>
             <div class="blob">
 
                 <svg viewBox="0 0 310 350">
@@ -33,7 +33,7 @@ function Inicio() {
             </div>
 
             {testJSX}
-        </>
+        </div>
     )
 }
 export default Inicio

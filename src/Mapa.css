@@ -14,7 +14,7 @@
   }
 
   .provinciaDibujo:hover{
-    fill: #FFBB00 !important;
+    fill: #F4DBB3 !important;
     stroke:#0F4C81;
     cursor:pointer;
   }
@@ -43,6 +43,28 @@
     margin-top:-140px;
   }
 
+  .botonBuscarMapa{
+    /* all: unset;  */
+    background-color:white;
+    border: rgb(255, 255, 255) 1px solid;
+    border-radius: 45px;
+    font-family: 'Inter';
+    font-weight:600;
+    font-size:18px;
+    padding:20px;
+    margin-top:5px;
+    margin-bottom:40px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    z-index: 3;
+    color:black;
+  }
+
+
+  .botonBuscarMapa:hover{
+    background:#c4d4e9;
+    cursor:pointer;
+  }
 
 
   @media (max-width: 500px) {
@@ -68,7 +90,7 @@
       align-items:center;
       margin-left:40px;
       margin-top:-30px;
-      margin-bottom:50px;
+      margin-bottom:0px;
     }
 
     .parrafo{
@@ -89,6 +111,28 @@
     .planoYFrase{
       display:flex;
       flex-direction:column;
+    }
+
+    .botonBuscarMapa{
+      /* all: unset;  */
+      background-color:white;
+      border: rgb(255, 255, 255) 1px solid;
+      border-radius: 45px;
+      font-family: 'Inter';
+      font-weight:600;
+      font-size:14px;
+      padding:15px;
+      margin-top:0px;
+      margin-bottom:40px;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+      z-index: 3;
+    }
+  
+  
+    .botonBuscarMapa:hover{
+      background:#c4d4e9;
+      cursor:pointer;
     }
 
   }

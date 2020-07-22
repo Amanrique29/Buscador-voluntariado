@@ -83,11 +83,12 @@ h3{
     font-weight:bold;
     margin-bottom:30px;
     margin-top:0px;
-    font-size:26px;
+    font-size:30px;
     margin-bottom:20px;
   }
 
   .textos{
+    margin-top:80px;
     margin-left:35%;
     margin-right:35%;
     margin-bottom:15px;
@@ -111,6 +112,20 @@ h3{
     margin-right:10px;
     margin-top:15px;
     border-radius:50%;
+  }
+
+  .blobResultados{
+    position: absolute;
+    top:-181px;
+    left: 377px;
+    fill: #023F92;
+    width: 63vmax;
+    z-index: -1;
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(00deg);
   }
 
 
@@ -185,6 +200,7 @@ h3{
     }
 
     .textos{
+      margin-top:0px;
       margin-left:8%;
       margin-right:8%;
       margin-bottom:15px;

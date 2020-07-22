@@ -187,7 +187,7 @@ function Mapa(props) {
                 </svg>
                 {arrayProvincias.length === 0 ? null :
                     <div className="centrar">
-                        <button onClick={props.siguiente} className="botonContinuar" >Continuar</button>
+                        <button onClick={props.siguiente} className="botonBuscarMapa" >Continuar</button>
                     </div>}
             </>
        

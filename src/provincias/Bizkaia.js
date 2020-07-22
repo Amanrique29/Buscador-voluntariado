@@ -7,7 +7,7 @@ function Bizkaia({name, seleccionarProvincia}) {
         fill: "white"
     };
     if(seleccionado) {
-        style.fill = "red";
+        style.fill = "#FFBB00";
     }
     function seleccionar() {
         seleccionarProvincia(name, !seleccionado);

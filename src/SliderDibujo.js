@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 function SliderDibujo(props) {
     const [valor, setValor] = useState(1);
     let porcentaje = (valor - 1) * 25;
-    let barStyle = {background: `linear-gradient(to right, rgb(228, 192, 76) ${porcentaje}%, white ${porcentaje}%)`};
+    let barStyle = {background: `linear-gradient(to right, #FFBB00 ${porcentaje}%, white ${porcentaje}%)`};
     
 
     function handleChange(event) {

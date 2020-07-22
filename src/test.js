@@ -7,21 +7,24 @@ import Mapa from './Mapa.js';
 function Test() {
 
     let mapaJSX = <main className="mainMapa">
+        <svg viewBox="0 0 200 200" className="blobMapa">
+            <path d="M70,-23.1C78.8,4.2,65.7,38.3,41.7,55.2C17.7,72.1,-17.2,71.9,-41.8,54.7C-66.3,37.5,-80.6,3.3,-71.9,-23.9C-63.2,-51.2,-31.6,-71.5,-0.5,-71.4C30.6,-71.2,61.2,-50.5,70,-23.1Z" transform="translate(100 100)" />
+        </svg>
         <h3 className="titularPagina">Elige tu área geográfica</h3>
         {/* <img className="test-img" src="spain.jpg" alt=""></img> */}
         <div className="provincias">
-            <Mapa siguiente={siguiente}/>
+            <Mapa siguiente={siguiente} />
         </div>
-        
+
     </main>;
 
     let provincias = [];
 
-    let slidersJSX = <main>
+    let slidersJSX = <main className="mainMapa">
         <h3 className="titularPagina">Define tus preferencias</h3>
         <Slider provincias={provincias} />
 
-        <Link to="/resultados" className="botonContinuar">Resultados</Link>
+        <Link to="/resultados" className="botonBuscarMapa">Resultados</Link>
     </main>;
 
     let [test, setTest] = useState(mapaJSX);
