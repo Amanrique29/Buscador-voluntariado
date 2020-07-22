@@ -7,7 +7,7 @@ function SobreNosotros() {
             <div className="doscolumnas">
                 <div className="columna">
                     <h1 className="titulos_">EL PROYECTO</h1>
-                    <p>Nuestro proyecto ha sido propuesto en la fase final del BBK Bootcamp por Idatis, organización dedicada a divulgar y desarrollar aplicaciones tecnológicas e innovadoras para conseguir un impacto positivo en la sociedad, tal y como expresan ellos mismos en su página web, que pueden consultar <a href="https://www.idatis.org/">aquí</a>.</p>
+                    <p>Nuestro proyecto ha sido propuesto en la fase final del BBK Bootcamp por Idatis, organización dedicada a divulgar y desarrollar aplicaciones tecnológicas e innovadoras para conseguir un impacto positivo en la sociedad, tal y como expresan ellos mismos en su página web, que pueden consultar <a className="idatis-web" href="https://www.idatis.org/"><b>aquí.</b></a></p>
                     <br></br>
                     <p>Nuestro reto consiste en la creación de un buscador de oportunidades de voluntariado a lo largo de todo el territorio nacional, para lo cual hemos optado por una doble vía de búsqueda:</p>
                     <br></br>
