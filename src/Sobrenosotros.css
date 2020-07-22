@@ -1,0 +1,10 @@
+.doscolumnas{
+    display: flex;
+    justify-content: space-evenly;
+}
+.columna1{
+    margin: 2%;
+}
+.columna2{
+    margin: 2%;
+}

@@ -12,9 +12,9 @@ function Header(){
             <div className="navegacion">
               <Link to="/" className="pestanya">Inicio</Link>
               <Link to="/buscador" className="pestanya" >Buscador</Link>
-              <Link to="/responsabilizate"
+              <Link to="/aboutus"
               className="pestanya"
-              >Responsabilízate</Link>
+              >Sobre nosotros</Link>
             </div>
           </div>
 

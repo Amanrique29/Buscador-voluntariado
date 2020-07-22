@@ -6,7 +6,7 @@ import Resultados from './resultados';
 import Header from './header';
 import Inicio from './Inicio'
 import Aboutus from './nosotros';
-import Responsabilizate from './responsable';
+import SobreNosotros from './nosotros';
 import Buscador from './buscador';
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
         <Route path="/resultados">
           <Resultados />
         </Route>
-        <Route path="/responsabilizate">
-          <Responsabilizate />
+        <Route path="/aboutus">
+          <SobreNosotros />
         </Route>
       </BrowserRouter>
     </>
