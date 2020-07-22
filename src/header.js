@@ -11,7 +11,7 @@ function Header(){
 
             <div className="navegacion">
               <Link to="/" className="pestanya">Inicio</Link>
-              <Link to="/aboutus" className="pestanya" >Sobre nosotros</Link>
+              <Link to="/buscador" className="pestanya" >Buscador</Link>
               <Link to="/responsabilizate"
               className="pestanya"
               >Responsabilízate</Link>

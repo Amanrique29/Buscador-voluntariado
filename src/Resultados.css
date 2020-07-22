@@ -19,6 +19,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items:baseline;
   width:100%;
 }
 
@@ -27,14 +28,14 @@
   margin-top:5%;
   margin-left: 2%;
   margin-right:2%;
-  padding:2%;
+  padding:33px;
   border-radius: 30px 30px 30px 30px;
   -moz-border-radius: 30px 30px 30px 30px;
   -webkit-border-radius: 30px 30px 30px 30px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 6px 6px 10px 0 rgba(0, 0, 0, 0.2);
   border:1px;
   background-color:white;
-  width: 550px;
+  width: 490px;
 }
 
 .descripcionBoton{
@@ -123,10 +124,10 @@ h3{
     }
     .resultadoActividades{
       color:#0F4C81;
-      margin-top:5%;
-      margin-left:5%;
-      margin-right:5%;
-      padding:12%;
+      margin-top:9%;
+      margin-left:9%;
+      margin-right:9%;
+      padding:8%;
       border-radius: 30px 30px 30px 30px;
       -moz-border-radius: 30px 30px 30px 30px;
       -webkit-border-radius: 30px 30px 30px 30px;

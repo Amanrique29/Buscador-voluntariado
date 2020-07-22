@@ -18,17 +18,14 @@ function App() {
           <Inicio />
         </Route>
         <Route path="/test">     <Test /></Route>
-        <Route path="/aboutus">
-          <Aboutus />
+        <Route path="/buscador">
+          <Buscador />
         </Route>
         <Route path="/resultados">
           <Resultados />
         </Route>
         <Route path="/responsabilizate">
           <Responsabilizate />
-        </Route>
-        <Route path="/buscador">
-          <Buscador />
         </Route>
       </BrowserRouter>
     </>

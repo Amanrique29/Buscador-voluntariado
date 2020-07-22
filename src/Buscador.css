@@ -8,6 +8,55 @@
     font-family: 'Inter', sans-serif;
   }
 
+
+  .botonBuscarBuscador{
+    /* all: unset;  */
+    background-color:#F4DBB3;
+    border: rgb(255, 255, 255) 1px solid;
+    border-radius: 45px;
+    font-family: 'Inter';
+    font-weight:600;
+    font-size:20px;
+    padding:16px;
+    margin-top:35px;
+    margin-bottom:50px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    z-index: 3;
+  }
+
+  .botonBuscarBuscador:hover{
+    background:#c4d4e9;
+    cursor:pointer;
+  }
+
+
+  .blobBuscador{
+    position: absolute;
+    top: -167px;
+    left: 326px;
+    fill: #023F92;
+    width: 68vmax;
+    z-index: -1;
+    /* animation: move 10s ease-in-out infinite; */
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  /* @keyframes move {
+    0%   { transform: scale(1)   translate(1px, 1px); }
+    38%  { transform: scale(0.8, 1) translate(1vw, 1vh) rotate(160deg); }
+    40%  { transform: scale(0.8, 1) translate(1vw, 1vh) rotate(160deg); }
+    78%  { transform: scale(1.3) translate(1vw, 1vh) rotate(-20deg); }
+    80%  { transform: scale(1.3) translate(1vw, 1vh) rotate(-20deg); }
+    100% { transform: scale(1)   translate(1px, 1px); }
+  } */
+
+
+
   .mainBuscador{
     margin-top:300px;
   }
@@ -47,7 +96,7 @@
     }
 
     input:checked + label {
-        background-color: white;
+        background-color: #ffffff;
         color:#0F4C81;
     }
     
@@ -55,7 +104,7 @@
       display: flex;
       flex-direction:row;
       justify-content: space-between;
-      margin-bottom: 3%;
+      margin-bottom: 40px;
     }
     input#buscar{
       width: 195px;
@@ -66,6 +115,7 @@
       border-radius:15px;
       color:#0F4C81;
       font-weight:200;
+      font-size:17px;
     }
 
     .ancho{
@@ -79,6 +129,7 @@
       padding:5px;
       font-weight:200;
       margin-left:10%;
+      font-size:15px;
     }
 
     .desplegables{
@@ -101,11 +152,12 @@
       transition: all 0.25s ease;
       text-align:center;
       width:15%;
-      padding-left:10px;
+      padding-left:0px;
+      font-size:13px;
     }
 
     .desplegables:hover{
-      background:#F4DBB3;
+      background:#f7edde;
       }
 
     #botonBusq{
@@ -132,7 +184,7 @@
     .boton-busqueda{
       display: flex;
       justify-content: center;
-      margin-top: 5%;
+      margin-top: 2%;
     }
 
      /* img.logo-ods {
@@ -162,7 +214,7 @@
     }
 
     .numResultados{
-      margin-top:35px;
+      margin-top:75px;
       text-align:center;
     }
 
@@ -251,6 +303,7 @@
         flex-wrap: wrap;
         width: 90%;
         margin:auto;
+        margin-bottom:20px;
   
     }
 
@@ -275,10 +328,11 @@
       -webkit-appearance: none;
       background-color:white;
       border:none;
-      padding:5px;
-      border-radius:15px;
+      padding:13px;
+      border-radius:21px;
       color:#0F4C81;
-      font-weight:200;
+      font-weight:500;
+      font-size:16px;
     }
 
     .ancho{
@@ -288,23 +342,23 @@
       background-color:#F4DBB3;
       border:none;
       padding:5px;
-      border-radius:15px;
+      border-radius:40px;
       padding:5px;
       font-weight:200;
       margin-left:10%;
     }
 
     .desplegables{
-      margin-top:15px;
-      margin-left: 30%;
-      width: 41%;
+      margin:auto;
+      
+      width: 35%;
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
     
-      display: inline-block;
+      display: flex;
       cursor: pointer;
-      padding-left:30px;
+      padding-left:0;
       outline: 0; 
       background-color:white;
       font-size: 1em;
@@ -316,6 +370,7 @@
       position: relative;
       transition: all 0.25s ease;
       text-align:center;
+      font-size:13px;
     }
 
     .desplegables:hover{

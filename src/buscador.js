@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Link, useParams } from 'react-router-dom';
-import {useCookies} from 'react-cookie'
+import { useCookies } from 'react-cookie'
 import './Buscador.css';
 import './DescripcionBuscador.js'
 import DescripcionBuscador from './DescripcionBuscador.js';
@@ -241,61 +241,69 @@ function Buscador() {
     }
 
     return (
-        <main className="mainBuscador">
-            <div className="inputyBoton">
-                <input type="text" placeholder="  Teclea lo que quieras" id="buscar" value={valorInput} onChange={selectValor}></input>
-                <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
+        <>
+            <div class="blobBuscador">
+
+                <svg viewBox="0 0 200 200">
+                    <path d="M41.3,-16C48.8,9.6,46.8,35.6,34.1,44.1C21.5,52.6,-1.8,43.6,-13.9,31.9C-25.9,20.1,-26.6,5.6,-22.5,-15.5C-18.3,-36.6,-9.1,-64.3,3.9,-65.5C16.9,-66.8,33.8,-41.6,41.3,-16Z" transform="translate(100 100)" />
+                </svg>
             </div>
 
-            <div>
-                {/* <div className="checkboxes">
+            <main className="mainBuscador">
+                <div className="inputyBoton">
+                    <input type="text" placeholder="  Teclea lo que quieras" id="buscar" value={valorInput} onChange={selectValor}></input>
+                    <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
+                </div>
+
+                <div>
+                    {/* <div className="checkboxes">
                     {tematicasJSX}
                 </div> */}
-                <div>{filters}</div>
+                    <div>{filters}</div>
 
 
 
-            </div>
-            <div className="boton-busqueda">
-                <button id="botonBusq" onClick={search}>Buscar</button>
-            </div>
-            <p>{resultados}</p>
-            {texto}
-            {/* <p>{temaSelect.map(el => <>{el} </>)}</p> */}
+                </div>
+                <div >
+                    <button className="botonBuscarBuscador" onClick={search}>Buscar</button>
+                </div>
+                <p>{resultados}</p>
+                {texto}
+                {/* <p>{temaSelect.map(el => <>{el} </>)}</p> */}
 
-            <div>
-                {cargando
-                    ?
-                    <div id="loading"></div>
-                    :
-                    !cargando && oportunidadesAMostrar.length === 0
+                <div>
+                    {cargando
                         ?
-                        <p>No hay resultados que mostrar</p>
+                        <div id="loading"></div>
                         :
-                        <> <p className="numResultados">Hay un total de {oportunidadesAMostrar.length} resultado(s)</p> 
-                        <div className="totalActividades">{oportunidadesAMostrarJSX}</div>
-                        </>
-                }
-            </div>
+                        !cargando && oportunidadesAMostrar.length === 0
+                            ?
+                            <p>No hay resultados que mostrar</p>
+                            :
+                            <> <p className="numResultados">Hay un total de {oportunidadesAMostrar.length} resultado(s)</p>
+                                <div className="totalActividades">{oportunidadesAMostrarJSX}</div>
+                            </>
+                    }
+                </div>
 
-            <div className="botonesAtrasSiguiente">
+                <div className="botonesAtrasSiguiente">
+                    {
+
+                        numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
+                    }
+                    {
+                        numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
+
+                    }
+                </div>
                 {
-
-                    numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
+                    numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
                 }
-                {
-                    numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
-
-                }
-            </div>
-            {
-                numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
-            }
 
 
 
 
-            {/* <div>
+                {/* <div>
                 <div>
                     {cargando
                         ?
@@ -322,7 +330,8 @@ function Buscador() {
 
                 }</div> */}
 
-        </main>
+            </main>
+        </>
 
     )
 };
