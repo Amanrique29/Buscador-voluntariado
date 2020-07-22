@@ -86,7 +86,9 @@
   opacity: 1;
   }
   
-  .slider-container .sliderPrueba::-webkit-slider-thumb{
+  .slider-container .sliderPrueba::-webkit-slider-thumb 
+  /* .slider-container .sliderPrueba::-moz-range-thumb */
+  {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
@@ -105,7 +107,10 @@
   
   
   .slider-container .sliderPrueba:active::-webkit-slider-thumb,
-  .slider-container .sliderPrueba::-webkit-slider-thumb:hover {
+  .slider-container .sliderPrueba::-webkit-slider-thumb:hover
+  /* .slider-container .sliderPrueba:active::-moz-range-thumb,
+  .slider-container .sliderPrueba::-moz-range-thumb:hover */
+   {
   border-bottom-left-radius: 0;
   transform: rotate(-45deg) translate(75%, -75%);
   box-shadow: 0 0 0 7px rgb(255, 255, 255)
@@ -155,12 +160,12 @@
 
   .blobMapa{
     position: absolute;
-    top: 0;
+    top: -80px;
     left: 348px;
     fill: #023F92;
-    width: 71vmax;
+    width: 67vmax;
     z-index: -1;
-    animation: move 10s ease-in-out infinite;
+    animation: moveMap 10s ease-in-out infinite;
     transform-origin: 50% 50%;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
@@ -168,16 +173,14 @@
     transform: rotate(-90deg);
   }
 
-  @keyframes move {
+  @keyframes moveMap {
     0%   { transform: scale(1)   translate(20px, 0px); }
-    38%  { transform: scale(0.8, 1) translate(3vw, 3vh) rotate(160deg); }
-    40%  { transform: scale(0.8, 1) translate(3vw, 3vh) rotate(160deg); }
-    78%  { transform: scale(1.3) translate(6vw, 6vh) rotate(-20deg); }
-    80%  { transform: scale(1.3) translate(6vw, 6vh) rotate(-20deg); }
+    38%  { transform: scale(1) translate(20px, 20px) rotate(40deg); }
+    40%  { transform: scale(1) translate(20px, 20px) rotate(40deg); }
+    78%  { transform: scale(1) translate(40px, 40px) rotate(-20deg); }
+    80%  { transform: scale(1) translate(40px, 40px) rotate(-20deg); }
     100% { transform: scale(1)   translate(20px, 0px); }
   }
-
-
 
   @media (max-width: 500px) {
   
@@ -223,18 +226,18 @@
     position: relative;
   }
   
-  .slider-container .bar {
-position: absolute;
-z-index: 1;
-left: 15px;
-right: 15px;
-top: 7px;
-height: 10px;
+.slider-container .bar {
+  position: absolute;
+  z-index: 1;
+  left: 15px;
+  right: 15px;
+  top: 7px;
+  height: 10px;
 
-border-radius: 5px;
-background-color: #5c5c5c;
-overflow: hidden;
-  }
+  border-radius: 5px;
+  background-color: #5c5c5c;
+  overflow: hidden;
+}
 
 .slider-container .bar .fill {
   display: block;

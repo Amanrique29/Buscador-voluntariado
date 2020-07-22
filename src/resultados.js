@@ -7,6 +7,10 @@ import DescripcionBuscador from './DescripcionBuscador.js';
 
 function Resultados() {
 
+    useEffect(function(){
+        window.location="#titularPagina"
+    },[])
+
     let history = useHistory();
 
     let listadoAfinidades = JSON.parse(localStorage.getItem('afinidades'));
@@ -52,36 +56,38 @@ function Resultados() {
 
             setActividadesElegidas(arrayElegidas);
             setCargando(false)
-
         })
 
     }, [])
 
-    let tematicasNombreNew = [];
-    let tematicasLogoNew = [];
+    useEffect(function () {
 
-    for (let a = 0; a < actividadesElegidas.length; a++) {
-        if (tematicasElegidasNombre.length === 0 && tematicasElegidasLogo.length === 0) {
-            tematicasNombreNew = [...tematicasElegidasNombre, actividadesElegidas[a].tema[0]]
-            setTematicasElegidasNombre(tematicasNombreNew);
-            tematicasLogoNew = [...tematicasElegidasLogo, actividadesElegidas[a].logotema[0]]
-            setTematicasElegidasLogo(tematicasLogoNew);
+        let tematicasNombreNew = [];
+        let tematicasLogoNew = [];
+        
+        for (let a = 0; a < actividadesElegidas.length; a++) {
+            if (tematicasNombreNew.length === 0 && tematicasLogoNew.length === 0) {
+            
+                tematicasNombreNew.push(actividadesElegidas[a].tema[0]);
+                tematicasLogoNew.push(actividadesElegidas[a].logotema[0]);
+                
+            } else {
+                let tematicaExiste = false;
+                for (let b = 0; b < tematicasNombreNew.length; b++) {
+                    if (actividadesElegidas[a].tema[0] === tematicasNombreNew[b] && actividadesElegidas[a].logotema[0].alt === tematicasLogoNew[b].alt) {
+                        tematicaExiste = true;
+                    }
+                }
+                if (tematicaExiste === false) {
 
-        } else {
-            let tematicaExiste = false;
-            for (let b = 0; b < tematicasElegidasNombre.length; b++) {
-                if (actividadesElegidas[a].tema[0] === tematicasElegidasNombre[b] && actividadesElegidas[a].logotema[0].alt === tematicasElegidasLogo[b].alt) {
-                    tematicaExiste = true;
+                    tematicasNombreNew.push(actividadesElegidas[a].tema[0]);
+                    tematicasLogoNew.push(actividadesElegidas[a].logotema[0]);
                 }
             }
-            if (tematicaExiste === false) {
-                tematicasNombreNew = [...tematicasElegidasNombre, actividadesElegidas[a].tema[0]]
-                setTematicasElegidasNombre(tematicasNombreNew);
-                tematicasLogoNew = [...tematicasElegidasLogo, actividadesElegidas[a].logotema[0]]
-                setTematicasElegidasLogo(tematicasLogoNew);
-            }
         }
-    }
+        setTematicasElegidasNombre(tematicasNombreNew);
+        setTematicasElegidasLogo(tematicasLogoNew);
+    }, [actividadesElegidas]);
 
     function irABuscador() {
         history.push("/buscador")
@@ -142,7 +148,6 @@ function Resultados() {
     }
 
 
-
     const provinciasJSX = listadoProvincias.map(function (provincia, i) {
 
         if (i < listadoProvincias.length - 1) {
@@ -153,16 +158,17 @@ function Resultados() {
 
     return (
         <main className="mainMapa">
+            <h3 className="titularPagina">Resultados del test</h3>
+
             <div class="blobResultados">
                 <svg viewBox="0 0 200 200" >
-                    <path  d="M65.2,-18.9C73.4,4.3,61.6,36.4,39.7,51.5C17.8,66.7,-14,65,-38.1,48.4C-62.3,31.9,-78.6,0.5,-70.9,-21.9C-63.3,-44.3,-31.6,-57.8,-1.6,-57.2C28.4,-56.7,56.9,-42.2,65.2,-18.9Z" transform="translate(100 100)" />
+                    <path d="M65.2,-18.9C73.4,4.3,61.6,36.4,39.7,51.5C17.8,66.7,-14,65,-38.1,48.4C-62.3,31.9,-78.6,0.5,-70.9,-21.9C-63.3,-44.3,-31.6,-57.8,-1.6,-57.2C28.4,-56.7,56.9,-42.2,65.2,-18.9Z" transform="translate(100 100)" />
                 </svg>
             </div>
 
-            <h3 className="titularPagina">Resultados del test</h3>
             <Grafica />
 
-            <div className="textos">
+            <div className="textos2">
                 <p>En función de tus preferencias, creemos que puedes tener afinidad con las siguientes temáticas:</p>
             </div>
             <div>
@@ -172,16 +178,16 @@ function Resultados() {
                 {tematicasLogosJSX}
             </div>
 
-            <div className="textos">
+            {/* <div className="textos">
                 <p>Si no te convencen las sugerencias, prueba nuestro buscador convencional.</p>
             </div>
             <div>
                 <button class="botonLeerMas" onClick={irABuscador}>Ir a buscador</button>
-            </div>
-            <div className="ofertasProvincia">
+            </div> */}
+            {/* <div className="ofertasProvincia">
                 <p>Ofertas en la(s) provincia(s) de: </p>
                 {provinciasJSX}
-            </div>
+            </div> */}
 
             <div>
                 {cargando
@@ -192,9 +198,24 @@ function Resultados() {
                         ?
                         <p>No hay resultados que mostrar</p>
                         :
-                        <> <p className="numResultados">Hay un total de {actividadesElegidas.length} resultado(s)</p>
+
+                        <div>
+
+                            <div className="textos">
+
+                                <p>Si no te convencen las sugerencias, prueba nuestro buscador convencional.</p>
+                            </div>
+                            <div className="textoIrABuscador">
+                                <button class="buscadorConvencionalLp2" onClick={irABuscador}>Ir a buscador</button>
+                            </div>
+                            <div className="ofertasProvincia">
+                                <p>Ofertas en la(s) provincia(s) de: </p>
+                                {provinciasJSX}
+                            </div>
+
+                            <p className="numResultados">Hay un total de {actividadesElegidas.length} resultado(s)</p>
                             <div className="totalActividades">{actividadesElegidasJSX}</div>
-                        </>
+                        </div>
                 }
             </div>
             <div className="botonesAtrasSiguiente">

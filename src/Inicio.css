@@ -90,7 +90,7 @@
   }
 
   .buscadorConvencionalLp{
-    color:black;
+    color:rgb(218, 218, 218);
     background-color:none;
     border: rgb(255, 255, 255) 1px solid;
     border-radius: 45px;
@@ -103,7 +103,6 @@
     transition: all 0.25s ease;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
     z-index: 3;
-  
   }
 
   main{

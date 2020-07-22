@@ -7,7 +7,7 @@ function Header(){
         <>
         <header className="fijar">
           <div className="header">
-            <img className="logo" src="logorandom.jpg" alt=""></img>
+            <img className="logo" src="logo_volunteera.png" alt=""></img>
 
             <div className="navegacion">
               <Link to="/" className="pestanya">Inicio</Link>
@@ -17,7 +17,6 @@ function Header(){
               >Sobre nosotros</Link>
             </div>
           </div>
-
         </header>
         </>
     )

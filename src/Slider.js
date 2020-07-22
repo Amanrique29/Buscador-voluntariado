@@ -32,7 +32,7 @@ let arrayAfinidades = [
     frase: "Busco maximizar la eficiencia de los recursos y el tiempo de los miembros del equipo"
   },
   {
-    nombre: "divertido",
+    nombre: "jovialidad",
     frase: "Me decanto por experiencias que no supongan una gran carga emocional"
 
   }

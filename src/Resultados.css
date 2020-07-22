@@ -98,6 +98,17 @@ h3{
     justify-content:left;
   }
 
+  .textos2{
+    margin-top:20px;
+    margin-left:39%;
+    margin-right:39%;
+    margin-bottom:15px;
+    display:flex;
+    flex-direction:column;
+    justify-content:left;
+    justify-content:left;
+  }
+
   .ofertasProvincia{
     margin-top:20px;
     display:flex;
@@ -114,18 +125,56 @@ h3{
     border-radius:50%;
   }
 
-  .blobResultados{
+  .blobResultados {
     position: absolute;
-    top:-181px;
-    left: 377px;
+    top: -180px;
+    left: 240px;
     fill: #023F92;
-    width: 63vmax;
+    width: 71vmax;
     z-index: -1;
+    animation: moveSmall 10s ease-in-out infinite;
     transform-origin: 50% 50%;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(00deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  @keyframes moveSmall {
+    0%   { transform: scale(1)   translate(60px, 30px); }
+    38%  { transform: scale(0.9) translate(3vw, 50px) rotate(50deg); }
+    40%  { transform: scale(0.9) translate(3vw, 50px) rotate(50deg); }
+    78%  { transform: scale(0.9) translate(6vw, 50px) rotate(-20deg); }
+    80%  { transform: scale(0.9) translate(6vw, 50px) rotate(-20deg); }
+    100% { transform: scale(1)   translate(60px, 30px); }
+  }
+
+  .textoIrABuscador{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:120px;
+    margin:auto;
+  }
+
+  .buscadorConvencionalLp2{
+    color:rgb(218, 218, 218);
+    background-color:#0F4C81;
+    border: rgb(255, 255, 255) 1px solid;
+    border-radius: 45px;
+    font-family: 'Inter';
+    font-weight:400;
+    font-size:15px;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:40px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    z-index: 3;
+  }
+
+  .buscadorConvencionalLp2:hover{
+    cursor:pointer;
   }
 
 
@@ -200,6 +249,13 @@ h3{
     }
 
     .textos{
+      margin-top:0px;
+      margin-left:8%;
+      margin-right:8%;
+      margin-bottom:15px;
+    }
+
+    .textos2{
       margin-top:0px;
       margin-left:8%;
       margin-right:8%;
