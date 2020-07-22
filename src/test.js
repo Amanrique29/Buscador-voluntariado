@@ -6,7 +6,7 @@ import Mapa from './Mapa.js';
 
 function Test() {
 
-    let mapaJSX = <main>
+    let mapaJSX = <main className="mainMapa">
         <h3 className="titularPagina">Elige tu área geográfica</h3>
         {/* <img className="test-img" src="spain.jpg" alt=""></img> */}
         <div className="provincias">

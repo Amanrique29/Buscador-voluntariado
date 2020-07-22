@@ -148,6 +148,10 @@
   font-weight:600;
   }
 
+  .mainMapa{
+    margin-top:160px;
+  }
+
   @media (max-width: 500px) {
   
     h3{

@@ -44,7 +44,8 @@ function Buscador() {
         let sinFiltros = {
             palabra: "",
             tematicas: temaSelect,
-            provincia: ""
+            provincia: "",
+            busquedaActiva:false
         }
         setCargando(true)
         fetch('buscador', {
@@ -76,7 +77,8 @@ function Buscador() {
         let filtros = {
             palabra: "",
             tematicas: temaSelect,
-            provincia: ""
+            provincia: "",
+            busquedaActiva:true
         }
 
         setCargando(true)
