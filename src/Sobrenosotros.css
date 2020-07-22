@@ -2,9 +2,10 @@
     display: flex;
     justify-content: space-evenly;
 }
-.columna1{
-    margin: 2%;
+.columna{
+    margin: 6%;
 }
-.columna2{
-    margin: 2%;
+.titulos_{
+    display: flex;
+    justify-content: center;
 }
