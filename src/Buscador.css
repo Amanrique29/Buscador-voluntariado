@@ -8,7 +8,6 @@
     font-family: 'Inter', sans-serif;
   }
 
-
   .botonBuscarBuscador{
     /* all: unset;  */
     background-color:#F4DBB3;
@@ -214,7 +213,7 @@
     }
 
     .numResultados{
-      margin-top:75px;
+      margin-top:55px;
       text-align:center;
     }
 
@@ -225,9 +224,7 @@
       align-items:center;
     } */
 
-    .botonPasarPagina{
-      width:100px;
-    }
+    
 
     .contenedorIrAWeb{
       display:flex;
@@ -239,7 +236,7 @@
     .irASitioWeb{
       font-weight:bold;
       text-transform: uppercase;
-      color:#0F4C81;
+      color:#FFBB00;
     }
 
     .irASitioWeb:hover{
@@ -441,6 +438,11 @@
       width:100px;
     }
 
+    .botonPasarPagina:hover{
+      background-color:#ffffff;
+      border:#FFBB00;
+    }
+
     .contenedorIrAWeb{
       display:flex;
       justify-content:left;
@@ -479,6 +481,10 @@
     .organizacion{
       font-weight:500;
       margin-top:-10px;
+    }
+
+    .blobBuscador{
+      display:none;
     }
    
   }

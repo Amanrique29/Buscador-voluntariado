@@ -21,6 +21,7 @@
   justify-content: center;
   align-items:baseline;
   width:100%;
+  margin-top:60px;
 }
 
 .resultadoActividades{
@@ -54,11 +55,17 @@
 
 .botonPasarPagina{
   width:100px;
+  border-radius: 50px;
+  border:white;
+}
+
+.botonPasarPagina:hover{
+  background-color:#FFBB00;
 }
 
 .paginaActual{
   font-size:13px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   text-align:center;
 }
 
@@ -127,26 +134,26 @@ h3{
 
   .blobResultados {
     position: absolute;
-    top: -180px;
-    left: 240px;
+    top: -154px;
+    left: 403px;
     fill: #023F92;
-    width: 71vmax;
+    width: 60vmax;
     z-index: -1;
     animation: moveSmall 10s ease-in-out infinite;
     transform-origin: 50% 50%;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   @keyframes moveSmall {
-    0%   { transform: scale(1)   translate(60px, 30px); }
-    38%  { transform: scale(0.9) translate(3vw, 50px) rotate(50deg); }
-    40%  { transform: scale(0.9) translate(3vw, 50px) rotate(50deg); }
-    78%  { transform: scale(0.9) translate(6vw, 50px) rotate(-20deg); }
-    80%  { transform: scale(0.9) translate(6vw, 50px) rotate(-20deg); }
-    100% { transform: scale(1)   translate(60px, 30px); }
+    0%   { transform: scale(1)   translate(10px, 10px); }
+    38%  { transform: scale(0.9) translate(10px, 10px) rotate(20deg); }
+    40%  { transform: scale(0.9) translate(10px, 10px) rotate(20deg); }
+    78%  { transform: scale(0.9) translate(10px, 10px) rotate(-20deg); }
+    80%  { transform: scale(0.9) translate(10px, 10px) rotate(-20deg); }
+    100% { transform: scale(1)   translate(10px, 10px); }
   }
 
   .textoIrABuscador{
@@ -217,11 +224,17 @@ h3{
 
     .botonPasarPagina{
       width:100px;
+      border-radius: 50px;
+      border:white;
+    }
+
+    .botonPasarPagina:hover{
+      background-color:#FFBB00;
     }
 
     .paginaActual{
       font-size:13px;
-      margin-bottom: 10px;
+      margin-bottom: 40px;
       text-align:center;
     }
 
@@ -276,6 +289,10 @@ h3{
       margin-right:10px;
       margin-top:15px;
       border-radius:50%;
+    }
+
+    .blobResultados {
+      display:none;
     }
 
     }

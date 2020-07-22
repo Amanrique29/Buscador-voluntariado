@@ -1,18 +1,121 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
 .doscolumnas{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction:row;
+    justify-content: space-between;
     font-size: 15px;
+    margin-top:330px;
+    margin-left:400px;
+    margin-right:300px;
 }
+
 .columna{
-    margin: 0% 6% 6% 6%;
+    width:590px;
 }
+
+.columna p{
+    font-weight:200;
+    text-align:justify;
+    -webkit-hyphens: auto; 
+    -moz-hyphens: auto; 
+    -ms-hyphens: auto; 
+    hyphens: auto; 
+    font-size:16px;
+}
+
 .titulos_{
     font-size: 42px;
     padding-left: 0;
 }
-.ancho-parrafo{
-    width: 512px;
-}
+
 .idatis-web{
-    color: yellow;
+    color: #FFBB00;
 }
+
+.blobNosotros{
+    position: absolute;
+    top: -280px;
+    left: 60px;
+    fill: #023F92;
+    width: 73vmax;
+    z-index: -1;
+    animation: moveNosotros 10s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  @keyframes moveNosotros {
+    0%   { transform: scale(0.95) translate(20px, 0px); }
+    38%  { transform: scale(1) translate(20px, 20px) rotate(5deg); }
+    40%  { transform: scale(1) translate(20px, 20px) rotate(5deg); }
+    78%  { transform: scale(1) translate(40px, 40px) rotate(-2deg); }
+    80%  { transform: scale(1) translate(40px, 40px) rotate(-2deg); }
+    100% { transform: scale(0.95) translate(20px, 0px); }
+  }
+
+  @media (max-width: 500px) {
+
+    .doscolumnas{
+        display: flex;
+        flex-direction:column;
+        justify-content: space-between;
+        align-items:center;
+        font-size: 15px;
+        margin-top:0px;
+        margin-left:0px;
+        margin-right:0px;
+        margin-bottom:60px;
+    }
+    
+    .columna{
+        width:380px;
+        margin-top:50px;
+    }
+    
+    .columna p{
+        font-weight:200;
+        text-align:justify;
+        -webkit-hyphens: auto; 
+        -moz-hyphens: auto; 
+        -ms-hyphens: auto; 
+        hyphens: auto; 
+        font-size:16px;
+    }
+    
+    .titulos_{
+        font-size: 35px;
+        padding-left: 0;
+    }
+    
+    .idatis-web{
+        color: #FFBB00;
+    }
+    
+    .blobNosotros{
+        position: absolute;
+        top: 30px;
+        left: -110px;
+        fill: #023F92;
+        width: 100vmax;
+        z-index: -1;
+        animation: none;
+        transform-origin: 50% 50%;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+  }

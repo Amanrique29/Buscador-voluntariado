@@ -43,8 +43,8 @@ function DescripcionBuscador({ activity }) {
 
             </div>
 
-            <p className="contenidoTarjeta"><b>Provincia: {activity.actividad.provincia}</b></p>
-            <p className="tematicas"><b>Temáticas:</b> {activity.tema.map(function (t, i) {
+            <p className="contenidoTarjeta"><b className="titularNegrita">Provincia:</b> {activity.actividad.provincia}</p>
+            <p className="tematicas"><b className="titularNegrita">Temáticas:</b> {activity.tema.map(function (t, i) {
                 if (i < activity.tema.length - 1) {
                     return <>{t}, </>
                 }
