@@ -14,18 +14,27 @@
     margin-top:10px;
     font-weight:300;
 }
+
+.totalActividades {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width:100%;
+}
+
 .resultadoActividades{
   color:#0F4C81;
   margin-top:5%;
-  margin-left:5%;
-  margin-right:5%;
-  padding:12%;
+  margin-left: 2%;
+  margin-right:2%;
+  padding:2%;
   border-radius: 30px 30px 30px 30px;
   -moz-border-radius: 30px 30px 30px 30px;
   -webkit-border-radius: 30px 30px 30px 30px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 6px 6px 10px 0 rgba(0, 0, 0, 0.2);
   border:1px;
   background-color:white;
+  width: 550px;
 }
 
 .descripcionBoton{
@@ -103,6 +112,9 @@ h3{
     border-radius:50%;
   }
 
+
+
+
   @media (max-width: 500px) {
   
     p{
@@ -121,6 +133,7 @@ h3{
       box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 6px 6px 10px 0 rgba(0, 0, 0, 0.2);
       border:1px;
       background-color:white;
+      width: 90%;
     }
 
     .descripcionBoton{

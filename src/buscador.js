@@ -241,7 +241,7 @@ function Buscador() {
     }
 
     return (
-        <main>
+        <main className="mainBuscador">
             <div className="inputyBoton">
                 <input type="text" placeholder="  Teclea lo que quieras" id="buscar" value={valorInput} onChange={selectValor}></input>
                 <button className="ancho" onClick={MostrarFiltros}>Filtros avanzados</button>
@@ -272,7 +272,9 @@ function Buscador() {
                         ?
                         <p>No hay resultados que mostrar</p>
                         :
-                        <> <p className="numResultados">Hay un total de {oportunidadesAMostrar.length} resultado(s)</p> {oportunidadesAMostrarJSX}</>
+                        <> <p className="numResultados">Hay un total de {oportunidadesAMostrar.length} resultado(s)</p> 
+                        <div className="totalActividades">{oportunidadesAMostrarJSX}</div>
+                        </>
                 }
             </div>
 

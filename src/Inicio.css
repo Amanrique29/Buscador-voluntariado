@@ -3,31 +3,75 @@
   }
   
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Poppins:700');;
+
   
  
   body {
     font-family: 'Inter', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
 
+  h1 {
+    color: white;
+    font-size: 8vmin;
+    line-height: 1;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    padding-left: 40px;
+    z-index: 3;
   }
   
+  .blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: #023F92;
+    width: 50vmax;
+    z-index: -1;
+    animation: move 10s ease-in-out infinite;
+    transform-origin: 50% 50%;
+  }
+@keyframes move {
+  0%   { transform: scale(1)   translate(190px, -230px); }
+  38%  { transform: scale(0.8, 1) translate(20vw, 20vh) rotate(160deg); }
+  40%  { transform: scale(0.8, 1) translate(20vw, 20vh) rotate(160deg); }
+  78%  { transform: scale(1.3) translate(30vw, 30vh) rotate(-20deg); }
+  80%  { transform: scale(1.3) translate(30vw, 30vh) rotate(-20deg); }
+  100% { transform: scale(1)   translate(190px, -230px); }
+}
+  
+.titularLandingPage{
+  display:flex;
+  flex-direction:column;
+  justify-content:left;
+  align-items:left;
+  margin-top: 190px;
+}
 
 
-  .botonContinuar {
+  .botonContinuarLp{
     /* all: unset;  */
     background-color:white;
-    border: rgb(0, 0, 0) 1px solid;
-    border-radius: 10px;
-    font-family: 'Inter', sans-serif;
-    font-weight:200;
-    font-size:12px;
-    padding:10px;
+    border: rgb(255, 255, 255) 1px solid;
+    border-radius: 45px;
+    font-family: 'Inter';
+    font-weight:600;
+    font-size:23px;
+    padding:20px;
     margin-top:5px;
     margin-bottom:40px;
     transition: all 0.25s ease;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    z-index: 3;
   }
 
-  .botonContinuar:hover{
+  .botonContinuarLp:hover{
     background:#c4d4e9;
     cursor:pointer;
   }
@@ -45,17 +89,21 @@
     top:100px;
   }
 
-  .buscadorConvencional{
-    background-color:white;
-    color: rgb(122, 122, 122);
-    border:none;
-    border-radius: 10px;
-    font-family: 'Inter', sans-serif;
-    font-weight:200;
+  .buscadorConvencionalLp{
+    color:black;
+    background-color:none;
+    border: rgb(255, 255, 255) 1px solid;
+    border-radius: 45px;
+    font-family: 'Inter';
+    font-weight:400;
     font-size:12px;
     padding:10px;
-   
+    margin-top:5px;
+    margin-bottom:40px;
     transition: all 0.25s ease;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    z-index: 3;
+  
   }
 
   main{

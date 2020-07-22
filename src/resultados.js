@@ -186,7 +186,9 @@ function Resultados() {
                         ?
                         <p>No hay resultados que mostrar</p>
                         :
-                        <> <p className="numResultados">Hay un total de {actividadesElegidas.length} resultado(s)</p> {actividadesElegidasJSX}</>
+                        <> <p className="numResultados">Hay un total de {actividadesElegidas.length} resultado(s)</p> 
+                        <div className="totalActividades">{actividadesElegidasJSX}</div>
+                        </>
                 }
             </div>
             <div className="botonesAtrasSiguiente">
