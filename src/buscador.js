@@ -284,23 +284,23 @@ function Buscador() {
                             :
                             <> <p className="numResultados">Hay un total de {oportunidadesAMostrar.length} resultado(s)</p>
                                 <div className="totalActividades">{oportunidadesAMostrarJSX}</div>
+                                <div className="botonesAtrasSiguiente">
+                                    {
+                
+                                        numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
+                                    }
+                                    {
+                                        numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
+                
+                                    }
+                                </div>
+                                {
+                                    numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
+                                }
                             </>
                     }
                 </div>
 
-                <div className="botonesAtrasSiguiente">
-                    {
-
-                        numPagina * 6 + 6 <= 6 ? null : <button className="botonPasarPagina" onClick={paginaAnterior}>Anterior </button>
-                    }
-                    {
-                        numPagina * 6 + 6 < oportunidadesAMostrar.length ? <button className="botonPasarPagina" onClick={paginaSiguiente}>Siguiente </button> : null
-
-                    }
-                </div>
-                {
-                    numTotalPaginas === 0 ? null : <p className="paginaActual">Página {numPagina + 1} de {numTotalPaginas}</p>
-                }
 
 
 
